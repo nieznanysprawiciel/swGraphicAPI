@@ -3,15 +3,15 @@
 @author nieznanysprawiciel
 @copyright File is part of graphic engine SWEngine.
 */
-#include "stdafx.h"
+#include "swGraphicAPI/ResourceManager/stdafx.h"
 
 
-#include "GraphicAPI/ResourcesFactory.h"
+#include "swGraphicAPI/Resources/ResourcesFactory.h"
 #include "RasterizerState.h"
 #include "BlendingState.h"
 #include "DepthStencilState.h"
 
-#include "Common/MemoryLeaks.h"
+#include "swCommonLib/Common/MemoryLeaks.h"
 
 
 
@@ -374,28 +374,6 @@ RTTR_REGISTRATION
 		.property( "Emissive", &MaterialObject::Emissive ) BIND_AS_PTR
 		.property( "SpecularPower", &MaterialObject::Power );
 
-	/**@deprecated Nadchodzi nowy model. */
-	rttr::registration::class_< ModelPart >( "ModelPart" )
-		.property_readonly( "VertexShader", &ModelPart::vertex_shader )
-		.property_readonly( "PixelShader", &ModelPart::pixel_shader )
-		.property_readonly( "Material", &ModelPart::material )
-		.property_readonly( "MeshPartObject", &ModelPart::mesh )
-		.property_readonly( "DiffuseTexture", &ModelPart::GetTexture1 )
-		.property_readonly( "SpecularTexture", &ModelPart::GetTexture2 )
-		.property_readonly( "AmbientTexture", &ModelPart::GetTexture3 )
-		.property_readonly( "NormalMap", &ModelPart::GetTexture4 )
-		.property_readonly( "DisplacementMap", &ModelPart::GetTexture5 )
-		.property_readonly( "Texture6", &ModelPart::GetTexture6 )
-		.property_readonly( "Texture7", &ModelPart::GetTexture7 )
-		.property_readonly( "Texture8", &ModelPart::GetTexture8 );
-
-	
-	/**@deprecated Nadchodzi nowy model. */
-	rttr::registration::class_< MeshPartObject >( "MeshPartObject" )
-	.property_readonly( "BufferOffset", &MeshPartObject::buffer_offset )
-	.property_readonly( "VerticiesCount", &MeshPartObject::vertices_count )
-	.property_readonly( "BaseVertex", &MeshPartObject::base_vertex )
-	.property_readonly( "UseIndexBuffer", &MeshPartObject::use_index_buf );
 }
 
 

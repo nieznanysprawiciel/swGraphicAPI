@@ -8,11 +8,11 @@
 
 
 #include "DX11Initializer/DX11APIObjects.h"
-#include "GraphicAPI/MeshResources.h"
-#include "GraphicAPI/BlendingState.h"
-#include "GraphicAPI/RasterizerState.h"
-#include "GraphicAPI/DepthStencilState.h"
-#include "GraphicAPI/IRenderer.h"
+#include "swGraphicAPI/Resources/MeshResources.h"
+#include "swGraphicAPI/Resources/BlendingState.h"
+#include "swGraphicAPI/Resources/RasterizerState.h"
+#include "swGraphicAPI/Resources/DepthStencilState.h"
+#include "swGraphicAPI/Rendering/IRenderer.h"
 
 class DX11Renderer;
 typedef DX11Renderer Renderer;
@@ -62,39 +62,6 @@ public:
 
 
 
-///@name DepracatedAPI
-///@deprecated Use commands
-///@{
-	void SetTextures								( const ModelPart& model )																override;
-	void SetIndexBuffer								( BufferObject* buffer )																override;
-	bool SetVertexBuffer							( BufferObject* buffer, unsigned int offset = 0 )										override;
-	void DepthBufferEnable							( bool state )																			override;
-	void SetDefaultVertexLayout						()																						override;
-	void SetDefaultSampler							()																						override;
-
-	void InitBuffers								( unsigned int sizePerFram, unsigned int sizePerMesh )									override;
-	void InitDepthStates							()																						override;
-
-	void IASetPrimitiveTopology						( PrimitiveTopology topology )															override;
-	void IASetInputLayout							( ShaderInputLayout* pInputLayout )														override;
-
-
-	void VSSetConstantBuffers						( uint32 slot, BufferObject* buffer )													override;
-	void PSSetConstantBuffers						( uint32 slot, BufferObject* buffer )													override;
-
-	void UpdateSubresource							( BufferObject* pDstResource, const void *pSrcData )									override;
-
-	void SetShaders									( ModelPart& model )																	override;
-
-	// Rendering
-	void Draw										( unsigned int vertexCount, unsigned int startVertexLocation )							override;
-	void DrawIndexed								( unsigned int indexCount, unsigned int startIndexLocation, int baseVertexLocation )	override;
-	
-	void Present									()																						override;
-	void BeginScene									( RenderTargetObject* mainRenderTarget )												override;
-///}@
-
-
 
 	virtual void		Draw					( const DrawCommand& command )						override;
 	virtual void		DrawInstanced			( const DrawInstancedCommand& command )				override;
@@ -117,7 +84,8 @@ public:
 	virtual void		CopyTexture				( const CopyTextureCommand& command )				override;
 
 private:
-
+    
+    bool                SetVertexBuffer         ( BufferObject* buffer, unsigned int offset );
 	void				SetIndexBuffer			( BufferObject* buffer, unsigned int offset, bool extendedIndex );
 	void				SetRenderTarget			( RenderTargetObject* const targets[ MAX_BOUND_RENDER_TARGETS ], RenderTargetObject* depthStencil );
 	void				SetTextures				( TextureObject* const texturesArray[ MAX_BOUND_RENDER_TARGETS ], const uint8 shaderTypes[ MAX_BOUND_RENDER_TARGETS ] );

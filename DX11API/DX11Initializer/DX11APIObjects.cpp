@@ -3,13 +3,13 @@
 @author nieznanysprawiciel
 @copyright File is part of graphic engine SWEngine.
 */
-#include "stdafx.h"
+#include "swGraphicAPI/DX11API/stdafx.h"
 
 
 #include "DX11APIObjects.h"
 #include <DirectXMath.h>
 
-#include "Common/MemoryLeaks.h"
+#include "swCommonLib/Common/MemoryLeaks.h"
 
 //----------------------------------------------------------------------------------------------//
 //								Zmienne statyczne klasy											//

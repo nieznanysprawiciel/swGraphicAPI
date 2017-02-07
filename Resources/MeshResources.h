@@ -8,18 +8,17 @@
 */
 
 
-#include "Common/ObjectDeleter.h"
-#include "Common/MacrosSwitches.h"
-#include "Common/System/Path.h"
+#include "swCommonLib/Common/ObjectDeleter.h"
+#include "swCommonLib/System/Path.h"
 
-#include "GraphicAPI/ResourceObject.h"
-#include "GraphicAPI/IShader.h"
-#include "GraphicAPI/IBuffer.h"
-#include "GraphicAPI/IRenderTarget.h"
-#include "IShaderInputLayout.h"
-#include "GraphicAPI/GraphicAPIConstants.h"
-#include "GraphicAPI/ResourcePtr.h"
-#include "GraphicAPI/BufferInitData.h"
+#include "swGraphicAPI/Resources/ResourceObject.h"
+#include "swGraphicAPI/Resources/IShader.h"
+#include "swGraphicAPI/Resources/IBuffer.h"
+#include "swGraphicAPI/Resources/IRenderTarget.h"
+#include "swGraphicAPI/Resources/IShaderInputLayout.h"
+#include "swGraphicAPI/Rendering/GraphicAPIConstants.h"
+#include "swGraphicAPI/Resources/ResourcePtr.h"
+#include "swGraphicAPI/Resources/BufferInitData.h"
 
 #include <DirectXMath.h>
 
@@ -87,150 +86,18 @@ These are values used by default shaders. You don't have to use this convention
 when you write your own shaders.*/
 enum TextureUse
 {
-#if ENGINE_MAX_TEXTURES > 0
 	TEX_DIFFUSE			///<Tekstura dla kana³u diffuse
-#endif
-#if ENGINE_MAX_TEXTURES > 1
 	, TEX_SPECULAR		///<Tekstura dla kana³u specular
-#endif
-#if ENGINE_MAX_TEXTURES > 2
 	, TEX_EMISSIVE		///< Texture for emmisive channel
-#endif
-#if ENGINE_MAX_TEXTURES > 3
 	, TEX_BUMP_MAP		///<Bump mapa
-#endif
-#if ENGINE_MAX_TEXTURES > 4
 	, TEX_DISPLACEMENT_MAP		///<Tekstura przemieszczeñ wierzcho³ków, w przypadku u¿ywania teselacji wierzcho³ków
-#endif
-#if ENGINE_MAX_TEXTURES > 5
 	, TEX_OTHER1		///<Tekstura o dowolnym znaczeniu
-#endif
-#if ENGINE_MAX_TEXTURES > 6
 	, TEX_OTHER2		///<Tekstura o dowolnym znaczeniu
-#endif
-#if ENGINE_MAX_TEXTURES > 7
 	, TEX_LIGHTMAP		///<Lightmapa
-#endif
-
 };
 
 
 
-//----------------------------------------------------------------------------------------------//
-//								Mesh i Model													//
-//----------------------------------------------------------------------------------------------//
-
-/** @brief Struktura opisuje pojedyncz¹ cz¹stkê mesha o jednym materiale, teksturze i shaderach.
-@ingroup Resources
-@ingroup GraphicAPI
-
-W zale¿noœci od zawartoœci pola index_buffer w strukturze ModelPart, mesh jest wyœwietlany w trybie
-indeksowanym lub nie.
-Je¿eli wartoœæ tego pola wynosi nullptr, to wtedy u¿ywane s¹ zmienne buffer offset i vertices count, które jednoznacznie wskazuj¹, która czêœæ bufora wierzcho³ków ma zostaæ wyœwietlona.
-
-Je¿eli wskaŸnik index_buffer wskazuje na obiekt, to wtedy u¿ywany jest tryb indeksowany
-i zmienne buffer_offset, vertices_count i base_vertex.
-
-Klasa jest alokowana w Model3DFromFile i to w³aœnie ta klasa odpowiada za zwolnienie pamiêci.
-
-Pomimo dziedziczenia po klasie ResourceObject, nie jest u¿ywane pole m_uniqueId. Dlatego
-jest ono w kontruktorze ustawiane na WRONG_ID. MeshPartObject nie mog¹ byæ wspó³dzielone
-miêdzy obiektami.*/
-struct MeshPartObject : public ResourceObject
-{
-	DirectX::XMFLOAT4X4		transform_matrix;	///<Macierz przekszta³cenia wzglêdem œrodka modelu
-	unsigned int			buffer_offset;		///<Offset wzglêdem pocz¹tku bufora indeksów albo wierzcho³ków (zobacz: opis klasy)
-	unsigned int			vertices_count;		///<Liczba wierzcho³ków do wyœwietlenia
-	int						base_vertex;		///<Wartoœæ dodawana do ka¿dego indeksu przed przeczytaniem wierzcho³ka z bufora. (Tylko wersja indeksowana)
-	bool					use_index_buf;		///<Informacja czy jest u¿ywany bufor indeksów czy nie
-	
-	/** @brief inicjuje objekt neutralnymi wartoœciami tzn. zerami, ustawia use_index_buf na false i
-	ustawia macierz przekszta³cenia na macierz identycznoœciow¹.*/
-	MeshPartObject( )
-		: ResourceObject( 0 )		//W tym przypadku identyfikator nie ma znaczenia
-	{
-		buffer_offset = 0;
-		vertices_count = 0;
-		base_vertex = 0;
-		use_index_buf = false;
-		//domyœlnie nie wykonujemy ¿adnego przekszta³cenia
-		DirectX::XMMATRIX identity = DirectX::XMMatrixIdentity( );
-		XMStoreFloat4x4( &transform_matrix, identity );
-	}
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-/**@brief Struktura opisuj¹ca pojedyncz¹ czêœæ mesha gotow¹ do wyœwietlenia.
-@deprecated Zobacz @ref MeshAsset
-@ingroup Resources
-@ingroup GraphicAPI
-
-Meshe s¹ przechowywane w czêœciach, poniewa¿ do ró¿nych wierzcho³ków mog¹ byæ przypisane ró¿ne
-materia³y, tekstury i inne elementy. Ta struktura zawiera wskaŸniki na te elementy.
-
-Struktura nie zawiera bufora wierzcho³ków ani bufora indeksów. S¹ one przechowywane zewnêtrznie
-w klasie Model3DFromFile lub Dynamic_mesh_object i na jeden mesh przypada tylko jeden bufor wierzcho³ków i maksymalnie
-jeden bufor indeksów (mo¿e go nie byæ). 
-
-Obecnoœc bufora indeksów nie oznacza, ¿e ca³y mesh jest wyœwietlany w trybie indeksowanym. Mozliwe jest mieszanie trybów.
-Tryb odnosi siê wiêc nie do ca³ego mesha, a pojednyczego obiektu ModelPart.
-
-Tablica texture zawiera wskaŸniki na obiekty tekstur, których maksymalna liczba wynosi ENGINE_MAX_TEXTURES.
-Aby obs³u¿yæ wszystkie tekstury jakie mog¹ byc przypisane do obiektu, nale¿y podaæ mu odpowiedni shader, który
-umie to zrobiæ. Znaczenie poszczególnych pól tablicy tekstur jest opisywane przez enumeracjê TextureUse
-i w taki sposób wykorzystuj¹ je domyœlne shadery.
-*/
-struct ModelPart
-{
-	VertexShader*			vertex_shader;
-	PixelShader*			pixel_shader;
-	MaterialObject*			material;
-	TextureObject*			texture[ENGINE_MAX_TEXTURES];
-	MeshPartObject*			mesh;
-
-	ModelPart( )
-	{
-		vertex_shader = nullptr;
-		pixel_shader = nullptr;
-		material = nullptr;
-		mesh = nullptr;
-
-#if ENGINE_MAX_TEXTURES > 0
-		texture[0] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 1
-		texture[1] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 2
-		texture[2] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 3
-		texture[3] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 4
-		texture[4] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 5
-		texture[5] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 6
-		texture[6] = nullptr;
-#endif
-#if ENGINE_MAX_TEXTURES > 7
-		texture[7] = nullptr;
-#endif
-	}
-
-	TextureObject*		GetTexture1() const	{ return texture[0]; }
-	TextureObject*		GetTexture2() const	{ return texture[1]; }
-	TextureObject*		GetTexture3() const	{ return texture[2]; }
-	TextureObject*		GetTexture4() const	{ return texture[3]; }
-	TextureObject*		GetTexture5() const	{ return texture[4]; }
-	TextureObject*		GetTexture6() const	{ return texture[5]; }
-	TextureObject*		GetTexture7() const	{ return texture[6]; }
-	TextureObject*		GetTexture8() const	{ return texture[7]; }
-};
 
 //----------------------------------------------------------------------------------------------//
 //								TextureObject													//

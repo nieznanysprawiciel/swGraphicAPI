@@ -4,16 +4,19 @@
 @copyright File is part of graphic engine SWEngine.
 */
 
-#include "stdafx.h"
+#include "swGraphicAPI/ResourceManager/stdafx.h"
 #include "ResourceManager.h"
 
-#include "Common/ObjectDeleter.h"
-#include "Common/MacrosSwitches.h"
-#include "GraphicAPI/ResourcesFactory.h"
+#include "swCommonLib/Common/ObjectDeleter.h"
+#include "swCommonLib/Common/Converters.h"
+#include "swCommonLib/System/Path.h"
 
-#include "Common/Converters.h"
+#include "swGraphicAPI/Resources/ResourcesFactory.h"
 
-#include "Common/MemoryLeaks.h"
+
+
+#include "swCommonLib/Common/MemoryLeaks.h"
+
 
 using namespace DirectX;
 

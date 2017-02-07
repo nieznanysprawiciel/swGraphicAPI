@@ -5,7 +5,7 @@
 @copyright Plik jest czêœci¹ silnika graficznego SWEngine.
 */
 
-#include "Common/TypesDefinitions.h"
+#include "swCommonLib/Common/TypesDefinitions.h"
 
 /**@brief Blending operation.
 

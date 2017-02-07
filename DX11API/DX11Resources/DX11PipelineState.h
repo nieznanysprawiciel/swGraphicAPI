@@ -7,9 +7,9 @@
 
 #include "DX11Initializer/DX11APIObjects.h"
 
-#include "GraphicAPI/BlendingState.h"
-#include "GraphicAPI/DepthStencilState.h"
-#include "GraphicAPI/RasterizerState.h"
+#include "swGraphicAPI/Resources/BlendingState.h"
+#include "swGraphicAPI/Resources/DepthStencilState.h"
+#include "swGraphicAPI/Resources/RasterizerState.h"
 
 
 // ComPtr

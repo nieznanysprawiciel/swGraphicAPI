@@ -5,11 +5,11 @@
 @copyright Plik jest czêœci¹ silnika graficznego SWEngine.
 */
 
-#include "Common/Nullable.h"
+#include "swCommonLib/Common/Nullable.h"
 
-#include "GraphicAPI/IGraphicAPIInitializer.h"
+#include "swGraphicAPI/Rendering/IGraphicAPIInitializer.h"
 #include "DX11APIObjects.h"
-#include "GraphicAPI/SwapChain.h"
+#include "swGraphicAPI/Resources/SwapChain.h"
 
 
 /**@defgroup DX11API

@@ -5,11 +5,12 @@
 @copyright File is part of graphic engine SWEngine.
 */
 
-#include "MeshResources.h"
-#include "BlendingState.h"
-#include "RasterizerState.h"
-#include "DepthStencilState.h"
-#include "ResourceContainer.h"
+#include "swGraphicAPI/Resources/MeshResources.h"
+#include "swGraphicAPI/Resources/BlendingState.h"
+#include "swGraphicAPI/Resources/RasterizerState.h"
+#include "swGraphicAPI/Resources/DepthStencilState.h"
+#include "swGraphicAPI/ResourceManager/ResourceContainer.h"
+
 
 class ILoader;
 

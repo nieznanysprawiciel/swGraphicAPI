@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../../GraphicAPIConstants.h"
+#include "swGraphicAPI/Rendering/GraphicAPIConstants.h"
 #include "DX11APIObjects.h"
 
 

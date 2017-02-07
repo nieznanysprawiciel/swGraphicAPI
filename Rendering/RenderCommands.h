@@ -5,10 +5,10 @@
 @copyright File is part of graphic engine SWEngine.
 */
 
-#include "MeshResources.h"
-#include "BlendingState.h"
-#include "DepthStencilState.h"
-#include "RasterizerState.h"
+#include "swGraphicAPI/Resources/MeshResources.h"
+#include "swGraphicAPI/Resources/BlendingState.h"
+#include "swGraphicAPI/Resources/DepthStencilState.h"
+#include "swGraphicAPI/Resources/RasterizerState.h"
 
 /**@defgroup RenderingCommands Rendering commands
 Commands for @ref IRenderer class.
@@ -16,7 +16,8 @@ Commands for @ref IRenderer class.
 @ingroup GraphicAPI*/
 
 
-#define MAX_BOUND_RENDER_TARGETS 8
+#define MAX_BOUND_RENDER_TARGETS    8
+#define ENGINE_MAX_TEXTURES         8
 
 
 /**@brief Base class for renderer commands.

@@ -10,13 +10,13 @@
 
 ///@todo Dodaæ IDki obok œcie¿ek.
 ///@todo Kontrner powinien obs³ugiwaæ œcie¿ki, jako obiekty typu Path zamiast wstringów.
-//#include "Common/System/Path.h"
+//#include "swCommonLib/Common/System/Path.h"
 
 #include <map>
 #include <vector>
 #include <type_traits>
 
-#include "GraphicAPI/ResourcePtr.h"
+#include "swGraphicAPI/Resources/ResourcePtr.h"
 
 
 /**

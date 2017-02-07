@@ -6,7 +6,9 @@
 */
 
 
-#include "GraphicAPI/ResourceObject.h"
+#include "swGraphicAPI/Resources/ResourceObject.h"
+
+
 
 class IShaderInputLayout : public ResourceObject
 {

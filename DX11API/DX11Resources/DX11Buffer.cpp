@@ -3,14 +3,14 @@
 @author nieznanysprawiciel
 @copyright File is part of graphic engine SWEngine.
 */
-#include "stdafx.h"
+#include "swGraphicAPI/DX11API/stdafx.h"
 
 #include "DX11Buffer.h"
 #include "DX11Initializer/DX11ConstantsMapper.h"
 
-#include "Common/Converters.h"
+#include "swCommonLib/Common/Converters.h"
 
-#include "Common/MemoryLeaks.h"
+#include "swCommonLib/Common/MemoryLeaks.h"
 
 
 RTTR_REGISTRATION

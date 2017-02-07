@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Common/MemoryChunk.h"
-#include "Common/RTTR.h"
+#include "swCommonLib/Common/MemoryChunk.h"
+#include "swCommonLib/Common/RTTR.h"
 
-#include "GraphicAPI/GraphicAPIConstants.h"
-#include "GraphicAPI/IBuffer.h"
+#include "swGraphicAPI/Rendering/GraphicAPIConstants.h"
+#include "swGraphicAPI/Resources/IBuffer.h"
 
 #include <assert.h>
 

@@ -22,9 +22,9 @@
 #pragma warning( default : 4005 )
 
 
-#include "Common/RTTR.h"
+#include "swCommonLib/Common/RTTR.h"
 
-#include "GraphicAPI/MeshResources.h"
+#include "swGraphicAPI/Resources/MeshResources.h"
 #include "DX11Resources/DX11PipelineState.h"
 #include "DX11Resources/DX11Buffer.h"
 #include "DX11Resources/DX11ComputeShader.h"

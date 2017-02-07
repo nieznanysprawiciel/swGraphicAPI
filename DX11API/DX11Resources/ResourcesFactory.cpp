@@ -3,9 +3,9 @@
 @author nieznanysprawiciel
 @copyright File is part of graphic engine SWEngine.
 */
-#include "stdafx.h"
+#include "swGraphicAPI/DX11API/stdafx.h"
 
-#include "GraphicAPI/ResourcesFactory.h"
+#include "swGraphicAPI/Resources/ResourcesFactory.h"
 #include "DX11Initializer/DX11Initializer.h"
 
 #include "DX11VertexShader.h"
@@ -19,7 +19,7 @@
 #include "DX11SwapChain.h"
 #include "DX11PipelineState.h"
 
-#include "Common/MemoryLeaks.h"
+#include "swCommonLib/Common/MemoryLeaks.h"
 
 typedef DX11Texture				Texture;
 typedef DX11VertexShader		VertexShaderObject;

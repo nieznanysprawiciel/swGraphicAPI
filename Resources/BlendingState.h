@@ -5,10 +5,10 @@
 @copyright File is part of graphic engine SWEngine.
 */
 
-#include "Common/ObjectDeleter.h"
+#include "swCommonLib/Common/ObjectDeleter.h"
 
 #include "ResourceObject.h"
-#include "GraphicAPIConstants.h"
+#include "swGraphicAPI/Rendering/GraphicAPIConstants.h"
 
 #include <DirectXMath.h>
 

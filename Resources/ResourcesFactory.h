@@ -5,12 +5,12 @@
 @copyright Plik jest czêœci¹ silnika graficznego SWEngine.
 */
 
-#include "GraphicAPI/MeshResources.h"
-#include "GraphicAPI/RasterizerState.h"
-#include "GraphicAPI/BlendingState.h"
-#include "DepthStencilState.h"
-#include "GraphicAPI/SwapChain.h"
-#include "GraphicAPI/IGraphicAPIInitializer.h"
+#include "swGraphicAPI/Resources/MeshResources.h"
+#include "swGraphicAPI/Resources/RasterizerState.h"
+#include "swGraphicAPI/Resources/BlendingState.h"
+#include "swGraphicAPI/Resources/DepthStencilState.h"
+#include "swGraphicAPI/Resources/SwapChain.h"
+#include "swGraphicAPI/Rendering/IGraphicAPIInitializer.h"
 
 class AssetsManager;
 

@@ -3,7 +3,7 @@
 @author nieznanysprawiciel
 @copyright File is part of graphic engine SWEngine.
 */
-#include "stdafx.h"
+#include "swGraphicAPI/DX11API/stdafx.h"
 
 
 #include "DX11InputLayoutDescriptor.h"
@@ -11,7 +11,7 @@
 
 #include <cstring>
 
-#include "Common/MemoryLeaks.h"
+#include "swCommonLib/Common/MemoryLeaks.h"
 
 
 

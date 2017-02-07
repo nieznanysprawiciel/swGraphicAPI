@@ -6,7 +6,7 @@
 @brief Plik zawiera deklaracjê i definicjê klasy ResourceObject s³u¿¹c¹
 do zliczania odwo³añ do obiektu.*/
 
-#include "Common/EngineObject.h"
+#include "swCommonLib/Common/EngineObject.h"
 //#include <atomic>
 
 

@@ -7,11 +7,13 @@
 @brief Deklaracja interfejsu IGraphicAPIInitializer.
 */
 
-#include "GraphicAPI/IRenderer.h"
-#include "GraphicAPI/SwapChain.h"
-#include "Common/TypesDefinitions.h"
+#include "swGraphicAPI/Rendering/IRenderer.h"
+#include "swGraphicAPI/Resources/SwapChain.h"
+#include "swCommonLib/Common/TypesDefinitions.h"
 
 #include <string>
+
+
 
 /**@defgroup GraphicAPI
 @ingroup ModulesStructure

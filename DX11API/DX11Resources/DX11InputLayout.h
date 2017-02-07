@@ -5,7 +5,7 @@
 @copyright Plik jest czêœci¹ silnika graficznego SWEngine.
 */
 
-#include "GraphicAPI/MeshResources.h"
+#include "swGraphicAPI/Resources/MeshResources.h"
 #include "DX11Initializer/DX11APIObjects.h"
 
 /**@brief Implementacja layout w DirectX 11.

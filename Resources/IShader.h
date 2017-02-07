@@ -6,8 +6,11 @@
 */
 
 
-#include "GraphicAPI/ResourceObject.h"
+#include "swGraphicAPI/Resources/ResourceObject.h"
+
 #include <string>
+
+
 
 class IShader	:	public ResourceObject
 {

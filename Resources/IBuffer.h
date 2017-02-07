@@ -5,11 +5,13 @@
 @copyright Plik jest czêœci¹ silnika graficznego SWEngine.
 */
 
-#include "GraphicAPI/ResourceObject.h"
-#include "GraphicAPI/GraphicAPIConstants.h"
+#include "swGraphicAPI/Resources/ResourceObject.h"
+#include "swGraphicAPI/Rendering/GraphicAPIConstants.h"
 #include "ResourcePtr.h"
-#include "Common/MemoryChunk.h"
-#include "Common/System/Path.h"
+
+#include "swCommonLib/Common/MemoryChunk.h"
+#include "swCommonLib/System/Path.h"
+
 
 /**@defgroup Buffers
 @ingroup Resources

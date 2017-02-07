@@ -1,7 +1,7 @@
 #pragma once
 
-#include "GraphicAPI/DX11API/DX11Initializer/DX11APIObjects.h"
-#include "GraphicAPI/SwapChain.h"
+#include "swGraphicAPI/DX11API/DX11Initializer/DX11APIObjects.h"
+#include "swGraphicAPI/Resources/SwapChain.h"
 #include "DX11RenderTarget.h"
 
 
