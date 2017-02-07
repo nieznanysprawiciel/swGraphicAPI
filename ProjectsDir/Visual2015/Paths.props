@@ -4,9 +4,9 @@
   
   <PropertyGroup Label="UserMacros">
 	<RootDir>$(MSBuildThisFileDirectory)..\..\</RootDir>
-	<ProjectsDir>$(RootDir)Projects\</ProjectsDir>
+	<ProjectsDir>$(RootDir)ProjectsDir\</ProjectsDir>
 	<TestsDir>$(RootDir)Tests\</TestsDir>
-	<ReleaseDir>$(RootDir)ReleaseDir\</ReleaseDir>
+	<ReleaseDir>$(ProjectsDir)ReleaseDir\</ReleaseDir>
 	<LibDir>$(ReleaseDir)LibDir\</LibDir>
 	<BuildDir>$(ReleaseDir)BuildDir\</BuildDir>
 	<SourceInclude>$(RootDir)..\</SourceInclude>
