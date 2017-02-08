@@ -25,5 +25,8 @@
       <PrecompiledHeaderFile>swGraphicAPI/DX11API/stdafx.h</PrecompiledHeaderFile>
       <AdditionalIncludeDirectories>$(SourceInclude)/swGraphicAPI/DX11API/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <ProjectReference>
+      <LinkLibraryDependencies>true</LinkLibraryDependencies>
+    </ProjectReference>
   </ItemDefinitionGroup>
 </Project>

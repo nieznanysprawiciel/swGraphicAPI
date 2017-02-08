@@ -6,7 +6,7 @@
 	<RootDir>$(MSBuildThisFileDirectory)..\..\</RootDir>
 	<ProjectsDir>$(RootDir)ProjectsDir\</ProjectsDir>
 	<TestsDir>$(RootDir)Tests\</TestsDir>
-	<ReleaseDir>$(ProjectsDir)ReleaseDir\</ReleaseDir>
+	<ReleaseDir>$(ProjectsDir)Output\</ReleaseDir>
 	<LibDir>$(ReleaseDir)LibDir\</LibDir>
 	<BuildDir>$(ReleaseDir)BuildDir\</BuildDir>
 	<SourceInclude>$(RootDir)..\</SourceInclude>
