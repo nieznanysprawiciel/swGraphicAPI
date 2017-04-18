@@ -23,6 +23,8 @@
     <ClInclude Include="..\..\..\Rendering\IGraphicAPIInitializer.h" />
     <ClInclude Include="..\..\..\Rendering\IRenderer.h" />
     <ClInclude Include="..\..\..\Rendering\RenderCommands.h" />
+    <ClInclude Include="..\..\..\ResourceManager\IAssetLoader.h" />
+    <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h" />
     <ClInclude Include="..\..\..\ResourceManager\ResourceContainer.h" />
     <ClInclude Include="..\..\..\ResourceManager\ResourceManager.h" />
     <ClInclude Include="..\..\..\ResourceManager\stdafx.h" />
