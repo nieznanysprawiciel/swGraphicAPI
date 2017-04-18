@@ -101,6 +101,8 @@ public:
 	virtual std::vector< ResourcePtr< ResourceObject > >		Load		( const filesystem::Path& filePath, TypeID resourceType, IAssetLoadInfo* assetDesc, AssetFactoryAPI* factory ) = 0;
 };
 
+DEFINE_OPTR_TYPE( IAssetLoader );
+
 
 }	// sw
 

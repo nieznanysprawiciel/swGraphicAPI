@@ -15,6 +15,13 @@ namespace sw
 
 // ================================ //
 //
+AssetsFactory::AssetsFactory	( IAssetCache* cache )
+	:	m_cacheRef( cache )
+{}
+
+
+// ================================ //
+//
 bool			AssetsFactory::RegisterCreator		( IAssetCreatorPtr creator )
 {
 	TypeID type = creator->GetAssetType();

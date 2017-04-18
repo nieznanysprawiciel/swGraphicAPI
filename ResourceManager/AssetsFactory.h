@@ -14,6 +14,9 @@
 namespace sw
 {
 
+class IAssetCache;
+
+
 /**@brief Assets factory.
 @ingroup AssetsManagement*/
 class AssetsFactory
@@ -22,9 +25,10 @@ private:
 protected:
 
 	std::vector< IAssetCreatorPtr >		m_assetCreators;
+	IAssetCache*						m_cacheRef;				///< Pointer to cache object. This class is not owner.
 
 public:
-	explicit		AssetsFactory		() = default;
+	explicit		AssetsFactory		( IAssetCache* cache );
 					~AssetsFactory		() = default;
 
 	/**@brief Function for generic asset creation.
@@ -37,5 +41,7 @@ public:
 	bool					RegisterCreator	( IAssetCreatorPtr creator );
 };
 
+
+DEFINE_OPTR_TYPE( AssetsFactory );
 
 }	// sw
