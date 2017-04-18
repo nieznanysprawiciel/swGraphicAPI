@@ -84,7 +84,7 @@ protected:
 
 public:
 	explicit						ResourceManager();
-									~ResourceManager();
+	virtual							~ResourceManager();
 
 	// Funkcje do zarz¹dzania assetami
 	RenderTargetObject*				CreateRenderTarget			( const std::wstring& name, const RenderTargetDescriptor& renderTargetDescriptor );

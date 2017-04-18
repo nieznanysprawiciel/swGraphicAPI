@@ -13,6 +13,12 @@
     <Filter Include="PrecompiledHeader">
       <UniqueIdentifier>{789ce426-c09f-475d-b42f-e620b8e9891a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager\Cache">
+      <UniqueIdentifier>{bc9fe5a8-2e78-4796-a29c-78593ee7afc1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\AssetCreators">
+      <UniqueIdentifier>{109aaa4d-08d9-462a-8def-3baa551804f0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Rendering\IRenderer.h">
@@ -81,6 +87,18 @@
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h">
       <Filter>ResourceManager</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h">
+      <Filter>ResourceManager\AssetCreators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreateInfo.h">
+      <Filter>ResourceManager\AssetCreators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\nResourceManager.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -91,6 +109,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\stdafx.cpp">
       <Filter>PrecompiledHeader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp">
+      <Filter>ResourceManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
