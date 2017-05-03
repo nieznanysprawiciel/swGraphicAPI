@@ -17,6 +17,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SerializerXML", "..\swCommo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CommonBase", "..\swCommonLib\Projects\Visual2015\CommonBase\CommonBase.vcxproj", "{9ABCBAB4-05B4-47C5-B5D8-F201559FD096}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MockAPI", "ProjectsDir\Visual2015\MockAPI\MockAPI.vcxproj", "{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -73,6 +75,14 @@ Global
 		{9ABCBAB4-05B4-47C5-B5D8-F201559FD096}.Release|x64.Build.0 = Release|x64
 		{9ABCBAB4-05B4-47C5-B5D8-F201559FD096}.Release|x86.ActiveCfg = Release|Win32
 		{9ABCBAB4-05B4-47C5-B5D8-F201559FD096}.Release|x86.Build.0 = Release|Win32
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Debug|x64.ActiveCfg = Debug|x64
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Debug|x64.Build.0 = Debug|x64
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Debug|x86.ActiveCfg = Debug|Win32
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Debug|x86.Build.0 = Debug|Win32
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Release|x64.ActiveCfg = Release|x64
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Release|x64.Build.0 = Release|x64
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Release|x86.ActiveCfg = Release|Win32
+		{EEEFAB61-F404-4957-AC24-A3BF81C5E4ED}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
