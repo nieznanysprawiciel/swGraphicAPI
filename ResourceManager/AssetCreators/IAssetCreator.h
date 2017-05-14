@@ -22,7 +22,7 @@ namespace sw
 /**@brief Interface for assets creator.
 
 Each asset type should have associated creator class, which implements creation function.
-This allows user to create generic assets. AssetCreator can be registere in AssetsFactory.
+This allows user to create generic assets. AssetCreator can be registered in AssetsFactory.
 
 Derived implementation can expose functions for typed IAssetCreateInfo descriptors.
 

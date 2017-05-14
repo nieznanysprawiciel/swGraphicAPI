@@ -18,6 +18,7 @@ creation is not necessary.
 @ingroup AssetsManagement*/
 class IAssetCreateInfo
 {
+	RTTR_ENABLE();
 private:
 protected:
 public:

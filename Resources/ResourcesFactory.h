@@ -14,6 +14,11 @@
 
 class AssetsManager;
 
+namespace sw
+{
+	class BufferCreator;
+}
+
 
 /**@brief Klasa ze statycznymi funkcjami do tworzenia obiektów assetów.
 @ingroup GraphicAPI
@@ -25,6 +30,7 @@ class ResourcesFactory
 {
 	friend class ResourceManager;
 	friend class AssetsManager;
+	friend class sw::BufferCreator;
 private:
 	static TextureObject*			CreateTextureFromMemory			( const MemoryChunk& texData, TextureInfo&& texInfo );
 

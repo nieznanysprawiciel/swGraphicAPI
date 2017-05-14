@@ -23,6 +23,7 @@
     <ClInclude Include="..\..\..\Rendering\IGraphicAPIInitializer.h" />
     <ClInclude Include="..\..\..\Rendering\IRenderer.h" />
     <ClInclude Include="..\..\..\Rendering\RenderCommands.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreateInfo.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h" />
@@ -49,6 +50,7 @@
     <ClInclude Include="..\..\..\Resources\SwapChain.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />

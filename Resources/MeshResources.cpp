@@ -353,7 +353,13 @@ RTTR_REGISTRATION
 		.property_readonly( "4 Bytes Index Size", &BufferInfo::Use4BytesIndex )
 		.property_readonly( "VertexLayout", &BufferInfo::VertexLayout );
 
+	rttr::registration::class_< BufferInitData >( "BufferInitData" );
+	rttr::registration::class_< ConstantBufferInitData >( "ConstantBufferInitData" );
+	rttr::registration::class_< VertexBufferInitData >( "VertexBufferInitData" );
+	rttr::registration::class_< IndexBufferInitData >( "IndexBufferInitData" );
 
+
+	// Shader
 	rttr::registration::class_< ShaderInputLayout >( "ShaderInputLayout" );
 	rttr::registration::class_< IShader >( "IShader" )
 		.property_readonly( "FilePath", &IShader::GetShaderFile )
@@ -475,12 +481,17 @@ std::string		RenderTargetObject::GetResourceName() const
 //								BufferObject													//
 //----------------------------------------------------------------------------------------------//
 
+// ================================ //
+//
 BufferObject::BufferObject( unsigned int elementSize, unsigned int elementCount )
 	:	m_elementSize( elementSize ),
 		m_elementCount( elementCount )
-{
-}
+{}
 
+// ================================ //
+//
+TypeID		BufferInitData::GetAssetType	()
+{	return TypeID::get< BufferObject >(); 	}
 
 //----------------------------------------------------------------------------------------------//
 //								MaterialObject													//

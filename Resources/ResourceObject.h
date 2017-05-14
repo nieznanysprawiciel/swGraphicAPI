@@ -39,8 +39,7 @@ protected:
 	virtual ~ResourceObject() = default;		///<Nie ka¿dy mo¿e skasowaæ obiekt
 
 public:
-	/**
-	Ustawia zerow¹ liczbê odwo³añ.*/
+	/**Ustawia zerow¹ liczbê odwo³añ.*/
 	ResourceObject( int id )
 	{
 		m_objectReferences = 0;
@@ -67,6 +66,10 @@ public:
 	inline unsigned int GetID()			{ return m_uniqueId; }		///< Zwraca identyfikator nadany assetowi
 
 	virtual std::string GetResourceName() const = 0;				///< Zwraca nazwê zasobu. To mo¿e byæ nazwa pliku, na podstawie którego stworzono zasób, ale zasadniczo interpretacja jest dowolna.
+
+public:
+
+	virtual bool		IsCacheable		() { return false;  }
 };
 
 

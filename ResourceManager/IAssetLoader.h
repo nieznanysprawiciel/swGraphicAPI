@@ -99,6 +99,12 @@ public:
 	@param[in] factory Pointer to interface for creating assets.
 	*/
 	virtual std::vector< ResourcePtr< ResourceObject > >		Load		( const filesystem::Path& filePath, TypeID resourceType, IAssetLoadInfo* assetDesc, AssetFactoryAPI* factory ) = 0;
+
+	/**@brief Function used to prefetch and cache asset.
+	
+	Loader shouldn't create this asset. Instead it should call asset creation functiond from asset manager with
+	flag indicating, that it should be cached. Note that this should apply to all nested assets too.*/
+	virtual bool												Prefetch	( const filesystem::Path& filePath, TypeID resourceType, IAssetLoadInfo* assetDesc, AssetFactoryAPI* factory ) = 0;
 };
 
 DEFINE_OPTR_TYPE( IAssetLoader );

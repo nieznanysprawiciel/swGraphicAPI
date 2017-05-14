@@ -19,6 +19,30 @@
     <Filter Include="ResourceManager\AssetCreators">
       <UniqueIdentifier>{109aaa4d-08d9-462a-8def-3baa551804f0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager\AssetCreators\Shaders">
+      <UniqueIdentifier>{1a78c6dc-95f4-453b-92c6-342673921141}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\AssetCreators\Buffers">
+      <UniqueIdentifier>{608b6d99-86e8-495a-8c5d-2030e8876186}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\AssetCreators\Textures">
+      <UniqueIdentifier>{af417ba2-7ad0-4576-ab21-44410c74d482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ResourceManager\AssetCreators\PipelineStates">
+      <UniqueIdentifier>{8b4595d8-4173-4632-821e-0f4dd58752ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Buffers">
+      <UniqueIdentifier>{5a78aff8-47ef-4094-99c6-ed51954842f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Shaders">
+      <UniqueIdentifier>{c8277046-d812-4e99-8acc-4f5b150b05d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Textures">
+      <UniqueIdentifier>{44631b0d-5d6a-46c8-a140-d29af5d801ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\PipelineStates">
+      <UniqueIdentifier>{650d0f75-9ccb-45b3-9bdd-f330d291cd90}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Rendering\IRenderer.h">
@@ -105,6 +129,9 @@
     <ClInclude Include="..\..\..\ResourceManager\Cache\MemoryCache.h">
       <Filter>ResourceManager\Cache</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.h">
+      <Filter>ResourceManager\AssetCreators\Buffers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -124,6 +151,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp">
       <Filter>ResourceManager\Cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp">
+      <Filter>ResourceManager\AssetCreators\Buffers</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
