@@ -19,6 +19,14 @@ namespace sw
 //
 ResourceObject*				BufferCreator::Create		( const filesystem::Path& assetName, IAssetCreateInfo&& createInfo )
 {
+	TypeID type = createInfo.get_type();
+	if( type == TypeID::get< ConstantBufferInitData >() )
+		return CreateConstantsBuffer( assetName, static_cast< ConstantBufferInitData& >( createInfo ) ).Ptr();
+	else if( type == TypeID::get< VertexBufferInitData >() )
+		return CreateVertexBuffer( assetName, static_cast< VertexBufferInitData& >( createInfo ) ).Ptr();
+	else if( type == TypeID::get< IndexBufferInitData >() )
+		return CreateIndexBuffer( assetName, static_cast< IndexBufferInitData& >( createInfo ) ).Ptr();
+
 	return nullptr;
 }
 
@@ -26,6 +34,7 @@ ResourceObject*				BufferCreator::Create		( const filesystem::Path& assetName, I
 //
 ResourceObject*				BufferCreator::LoadFromRaw	( const filesystem::Path& assetName, const MemoryChunk& rawData )
 {
+	assert( !"Buffer is not cacheable" );
 	return nullptr;
 }
 
@@ -33,6 +42,7 @@ ResourceObject*				BufferCreator::LoadFromRaw	( const filesystem::Path& assetNam
 //
 MemoryChunk					BufferCreator::SaveToRaw	( const IAssetCreateInfo& createInfo )
 {
+	assert( !"Buffer is not cacheable" );
 	return MemoryChunk();
 }
 
@@ -40,6 +50,7 @@ MemoryChunk					BufferCreator::SaveToRaw	( const IAssetCreateInfo& createInfo )
 //
 MemoryChunk					BufferCreator::SaveToRaw	( ResourcePtr< ResourceObject > resource )
 {
+	assert( !"Buffer is not cacheable" );
 	return MemoryChunk();
 }
 
