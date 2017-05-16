@@ -20,6 +20,8 @@
 #include "swGraphicAPI/Resources/ResourcePtr.h"
 #include "swGraphicAPI/Resources/BufferInitData.h"
 
+#include "swGraphicAPI/Resources/Shaders/Shaders.h"
+
 #include <DirectXMath.h>
 
 
@@ -364,143 +366,6 @@ public:
 };
 
 
-/**@brief Typ shadera.
-@ingroup Shaders*/
-enum class ShaderType : uint8
-{
-	VertexShader				= 0x01,
-	PixelShader					= 0x02,
-	GeometryShader				= 0x04,
-	TesselationControlShader	= 0x08,
-	TesselationEvaluationShader	= 0x10,
-	ComputeShader				= 0x20
-};
-
-//----------------------------------------------------------------------------------------------//
-//								VertexShader													//
-//----------------------------------------------------------------------------------------------//
-
-/** @brief Klasa przechowuj¹ca vertex shader.
-@ingroup Shaders
-@ingroup Resources
-@ingroup GraphicAPI*/
-class VertexShader : public IShader
-{
-	RTTR_ENABLE( IShader );
-	friend ObjectDeleter< VertexShader >;
-private:
-protected:
-	~VertexShader() = default;
-public:
-	VertexShader() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-//----------------------------------------------------------------------------------------------//
-//								PixelShader														//
-//----------------------------------------------------------------------------------------------//
-
-/**@brief Klasa przechowuj¹ca pixel shader.
-@ingroup Shaders
-@ingroup Resources
-@ingroup GraphicAPI*/
-class PixelShader : public IShader
-{
-	RTTR_ENABLE( IShader );
-	friend ObjectDeleter< PixelShader >;
-private:
-protected:
-	~PixelShader() = default;
-public:
-	PixelShader() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-//----------------------------------------------------------------------------------------------//
-//								GeometryShader													//
-//----------------------------------------------------------------------------------------------//
-
-/**@brief Klasa przechowuj¹ca pixel shader.
-@ingroup Shaders
-@ingroup Resources
-@ingroup GraphicAPI*/
-class GeometryShader : public IShader
-{
-	RTTR_ENABLE( IShader );
-	friend ObjectDeleter<GeometryShader>;
-private:
-protected:
-	~GeometryShader() = default;
-public:
-	GeometryShader() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-//----------------------------------------------------------------------------------------------//
-//								ControlShader													//
-//----------------------------------------------------------------------------------------------//
-
-/**@brief Klasa przechowuj¹ca pixel shader.
-@ingroup Shaders
-@ingroup Resources
-@ingroup GraphicAPI*/
-class ControlShader : public IShader
-{
-	RTTR_ENABLE( IShader );
-	friend ObjectDeleter< ControlShader >;
-private:
-protected:
-	~ControlShader() = default;
-public:
-	ControlShader() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-//----------------------------------------------------------------------------------------------//
-//								EvaluationShader												//
-//----------------------------------------------------------------------------------------------//
-
-/**@brief Klasa przechowuj¹ca pixel shader.
-@ingroup Shaders
-@ingroup Resources
-@ingroup GraphicAPI*/
-class EvaluationShader : public IShader
-{
-	RTTR_ENABLE( IShader );
-	friend ObjectDeleter< EvaluationShader >;
-private:
-protected:
-	~EvaluationShader() = default;
-public:
-	EvaluationShader() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-//----------------------------------------------------------------------------------------------//
-//								ComputeShader													//
-//----------------------------------------------------------------------------------------------//
-
-/**@brief Klasa przechowuj¹ca compute shader
-@ingroup Shaders
-@ingroup Resources
-@ingroup GraphicAPI*/
-class ComputeShader : public IShader
-{
-	RTTR_ENABLE( IShader );
-	friend ObjectDeleter<ComputeShader>;
-private:
-protected:
-	~ComputeShader() = default;
-public:
-	ComputeShader() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
 
 //----------------------------------------------------------------------------------------------//
 //								BufferObject													//

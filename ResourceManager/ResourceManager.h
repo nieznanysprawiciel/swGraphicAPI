@@ -47,6 +47,7 @@ Cache automatically manages resources. It supports maximal memory occupancy limi
 6. Support for logging mechanism. This mechanism is independent from logger implementation (maybe callback).
 7. Support for level of detailes.
 8. Support for asset streaming.
+9. Support for hot reload of shaders and other assets wher possible.
 */
 
 

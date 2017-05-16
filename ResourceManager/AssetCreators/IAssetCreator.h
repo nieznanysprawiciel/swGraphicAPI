@@ -10,6 +10,7 @@
 #include "swCommonLib/Common/MemoryChunk.h"
 
 #include "swGraphicAPI/Resources/ResourceObject.h"
+#include "swGraphicAPI/Resources/ResourcePtr.h"
 
 #include "IAssetCreateInfo.h"
 

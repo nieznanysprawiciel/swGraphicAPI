@@ -22,7 +22,8 @@ public:
 	virtual			~BufferCreator		() = default;
 
 
-	
+public:
+
 	virtual ResourceObject*			Create				( const filesystem::Path& assetName, IAssetCreateInfo&& createInfo )		override;
 
 	virtual ResourceObject*			LoadFromRaw			( const filesystem::Path& assetName, const MemoryChunk& rawData )			override;

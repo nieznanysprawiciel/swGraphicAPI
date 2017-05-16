@@ -26,6 +26,7 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreateInfo.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\IAssetCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\MemoryCache.h" />
@@ -47,10 +48,13 @@
     <ClInclude Include="..\..\..\Resources\ResourceObject.h" />
     <ClInclude Include="..\..\..\Resources\ResourcePtr.h" />
     <ClInclude Include="..\..\..\Resources\ResourcesFactory.h" />
+    <ClInclude Include="..\..\..\Resources\Shaders\ShaderInitData.h" />
+    <ClInclude Include="..\..\..\Resources\Shaders\Shaders.h" />
     <ClInclude Include="..\..\..\Resources\SwapChain.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />

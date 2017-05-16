@@ -132,6 +132,15 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.h">
       <Filter>ResourceManager\AssetCreators\Buffers</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.h">
+      <Filter>ResourceManager\AssetCreators\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Resources\Shaders\ShaderInitData.h">
+      <Filter>Resources\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Resources\Shaders\Shaders.h">
+      <Filter>Resources\Shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -154,6 +163,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp">
       <Filter>ResourceManager\AssetCreators\Buffers</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.cpp">
+      <Filter>ResourceManager\AssetCreators\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
