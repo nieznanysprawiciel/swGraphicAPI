@@ -164,7 +164,7 @@
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp">
       <Filter>ResourceManager\AssetCreators\Buffers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.cpp">
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
       <Filter>ResourceManager\AssetCreators\Shaders</Filter>
     </ClCompile>
   </ItemGroup>

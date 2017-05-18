@@ -50,7 +50,7 @@ bool			AssetsFactory::RegisterCreator		( IAssetCreatorPtr creator )
 void			AssetsFactory::RegisterDefaults		()
 {
 	RegisterCreator( IAssetCreatorPtr( new BufferCreator() ) );
-	m_buffersCreatorIdx = m_assetCreators.size() - 1;
+	m_buffersCreatorIdx = (uint8)m_assetCreators.size() - 1;
 
 
 }

@@ -14,6 +14,7 @@ namespace sw
 
 
 /**@brief */
+template< typename ShaderObjectType >
 class ShaderCreator : public IAssetCreator
 {
 private:
@@ -35,6 +36,13 @@ public:
 	virtual TypeID					GetAssetType			() override;
 
 public:
+
+	VertexShader*					CreateVertexShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	PixelShader*					CreatePixelShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	GeometryShader*					CreateGeometryShader		( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	ControlShader*					CreateControlShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	EvaluationShader*				CreateEvaluationShader		( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	ComputeShader*					CreateComputeShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
 
 };
 
