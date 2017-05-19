@@ -25,6 +25,12 @@ private:
 protected:
 
 	uint8				m_buffersCreatorIdx;
+	uint8				m_VSCreatorIdx;
+	uint8				m_PSCreatorIdx;
+	uint8				m_ESCreatorIdx;
+	uint8				m_CSCreatorIdx;
+	uint8				m_CtrlSCreatorIdx;
+	uint8				m_GSCreatorIdx;
 
 	std::vector< IAssetCreatorPtr >		m_assetCreators;
 	IAssetCache*						m_cacheRef;				///< Pointer to cache object. This class is not owner.

@@ -26,7 +26,7 @@ public:
 	virtual			~IAssetCreateInfo	() = default;
 
 	/**@brief Gets type of asset to create.*/
-	virtual TypeID					GetAssetType	()		= 0;
+	virtual TypeID					GetAssetType	() const		= 0;
 };
 
 

@@ -8,6 +8,7 @@
 #include "AssetsFactory.h"
 
 #include "swGraphicAPI/ResourceManager/AssetCreators/Buffers/BufferCreator.h"
+#include "swGraphicAPI/ResourceManager/AssetCreators/Shaders/ShaderCreator.h"
 
 
 
@@ -52,6 +53,23 @@ void			AssetsFactory::RegisterDefaults		()
 	RegisterCreator( IAssetCreatorPtr( new BufferCreator() ) );
 	m_buffersCreatorIdx = (uint8)m_assetCreators.size() - 1;
 
+	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< VertexShader >() ) );
+	m_VSCreatorIdx = (uint8)m_assetCreators.size() - 1;
+
+	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< PixelShader >() ) );
+	m_PSCreatorIdx = (uint8)m_assetCreators.size() - 1;
+
+	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< EvaluationShader >() ) );
+	m_ESCreatorIdx = (uint8)m_assetCreators.size() - 1;
+
+	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< ComputeShader >() ) );
+	m_CSCreatorIdx = (uint8)m_assetCreators.size() - 1;
+
+	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< ControlShader >() ) );
+	m_CtrlSCreatorIdx = (uint8)m_assetCreators.size() - 1;
+
+	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< GeometryShader >() ) );
+	m_GSCreatorIdx = (uint8)m_assetCreators.size() - 1;
 
 }
 

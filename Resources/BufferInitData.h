@@ -42,7 +42,7 @@ struct BufferInitData : public sw::IAssetCreateInfo
 		Data = nullptr;
 	}
 
-	virtual TypeID		GetAssetType	() override;
+	virtual TypeID		GetAssetType	() const override;
 
 public:
 	RTTR_ENABLE( sw::IAssetCreateInfo );

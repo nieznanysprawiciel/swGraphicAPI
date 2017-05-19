@@ -17,6 +17,8 @@ class AssetsManager;
 namespace sw
 {
 	class BufferCreator;
+
+	template< typename ShaderObjectType > class ShaderCreator;
 }
 
 
@@ -31,6 +33,14 @@ class ResourcesFactory
 	friend class ResourceManager;
 	friend class AssetsManager;
 	friend class sw::BufferCreator;
+
+	friend class sw::ShaderCreator< VertexShader >;
+	friend class sw::ShaderCreator< PixelShader >;
+	friend class sw::ShaderCreator< GeometryShader >;
+	friend class sw::ShaderCreator< EvaluationShader >;
+	friend class sw::ShaderCreator< ControlShader >;
+	friend class sw::ShaderCreator< ComputeShader >;
+
 private:
 	static TextureObject*			CreateTextureFromMemory			( const MemoryChunk& texData, TextureInfo&& texInfo );
 

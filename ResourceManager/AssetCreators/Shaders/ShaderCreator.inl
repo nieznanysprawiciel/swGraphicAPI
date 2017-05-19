@@ -1,11 +1,8 @@
 /**
-@file ShaderCreator.cpp
+@file ShaderCreator.inl
 @author nieznanysprawiciel
 @copyright File is part of Sleeping Wombat Libraries.
 */
-
-
-#include "swGraphicAPI/ResourceManager/stdafx.h"
 
 #include "ShaderCreator.h"
 #include "swGraphicAPI/Resources/MeshResources.h"
@@ -18,7 +15,7 @@ namespace sw
 // ================================ //
 //
 template< typename ShaderObjectType >
-ResourceObject*				ShaderCreator< ShaderObjectType >::Create			( const filesystem::Path& assetName, IAssetCreateInfo&& createInfo )
+inline ResourceObject*		ShaderCreator< ShaderObjectType >::Create			( const filesystem::Path& assetName, IAssetCreateInfo&& createInfo )
 {
 	auto & init = static_cast< ShaderInitData&& >( createInfo );
 
@@ -46,7 +43,7 @@ ResourceObject*				ShaderCreator< ShaderObjectType >::Create			( const filesyste
 // ================================ //
 //
 template< typename ShaderObjectType >
-ResourceObject*				ShaderCreator< ShaderObjectType >::LoadFromRaw		( const filesystem::Path& assetName, const MemoryChunk& rawData )
+inline ResourceObject*		ShaderCreator< ShaderObjectType >::LoadFromRaw		( const filesystem::Path& assetName, const MemoryChunk& rawData )
 {
 	assert( !"Buffer is not cacheable" );
 	return nullptr;
@@ -55,7 +52,7 @@ ResourceObject*				ShaderCreator< ShaderObjectType >::LoadFromRaw		( const files
 // ================================ //
 //
 template< typename ShaderObjectType >
-MemoryChunk					ShaderCreator< ShaderObjectType >::SaveToRaw		( const IAssetCreateInfo& createInfo )
+inline MemoryChunk			ShaderCreator< ShaderObjectType >::SaveToRaw		( const IAssetCreateInfo& createInfo )
 {
 	assert( !"Buffer is not cacheable" );
 	return MemoryChunk();
@@ -64,7 +61,7 @@ MemoryChunk					ShaderCreator< ShaderObjectType >::SaveToRaw		( const IAssetCrea
 // ================================ //
 //
 template< typename ShaderObjectType >
-MemoryChunk					ShaderCreator< ShaderObjectType >::SaveToRaw		( ResourcePtr< ResourceObject > resource )
+inline MemoryChunk			ShaderCreator< ShaderObjectType >::SaveToRaw		( ResourcePtr< ResourceObject > resource )
 {
 	assert( !"Buffer is not cacheable" );
 	return MemoryChunk();
@@ -73,7 +70,7 @@ MemoryChunk					ShaderCreator< ShaderObjectType >::SaveToRaw		( ResourcePtr< Res
 // ================================ //
 //
 template< typename ShaderObjectType >
-bool						ShaderCreator< ShaderObjectType >::SupportsResourceToRaw()
+inline bool					ShaderCreator< ShaderObjectType >::SupportsResourceToRaw()
 {
 	return false;
 }
@@ -86,7 +83,7 @@ bool						ShaderCreator< ShaderObjectType >::SupportsResourceToRaw()
 // ================================ //
 //
 template< typename ShaderObjectType >
-TypeID						ShaderCreator< ShaderObjectType >::GetAssetType()
+inline TypeID				ShaderCreator< ShaderObjectType >::GetAssetType()
 {
 	return TypeID::get< ShaderObjectType >();
 }
@@ -96,7 +93,7 @@ TypeID						ShaderCreator< ShaderObjectType >::GetAssetType()
 template< typename ShaderObjectType >
 inline VertexShader*		ShaderCreator< ShaderObjectType >::CreateVertexShader		( const filesystem::Path& fileName, const std::string& shaderEntry )
 {
-	return ResourcesFactory::CreateVertexShaderFromFile( fileName.String(), shaderEntry );
+	return ResourcesFactory::CreateVertexShaderFromFile( fileName.WString(), shaderEntry );
 }
 
 // ================================ //
@@ -104,7 +101,7 @@ inline VertexShader*		ShaderCreator< ShaderObjectType >::CreateVertexShader		( c
 template< typename ShaderObjectType >
 inline PixelShader*			ShaderCreator< ShaderObjectType >::CreatePixelShader		( const filesystem::Path& fileName, const std::string& shaderEntry )
 {
-	return ResourcesFactory::CreatePixelShaderFromFile( fileName.String(), shaderEntry );
+	return ResourcesFactory::CreatePixelShaderFromFile( fileName.WString(), shaderEntry );
 }
 
 // ================================ //
@@ -136,7 +133,7 @@ inline EvaluationShader*	ShaderCreator< ShaderObjectType >::CreateEvaluationShad
 template< typename ShaderObjectType >
 inline ComputeShader*		ShaderCreator< ShaderObjectType >::CreateComputeShader	( const filesystem::Path & fileName, const std::string & shaderEntry )
 {
-	return ResourcesFactory::CreateComputeShaderFromFile( fileName.String(), shaderEntry );
+	return ResourcesFactory::CreateComputeShaderFromFile( fileName.WString(), shaderEntry );
 }
 
 

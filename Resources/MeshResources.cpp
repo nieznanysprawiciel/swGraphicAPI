@@ -359,15 +359,6 @@ RTTR_REGISTRATION
 	rttr::registration::class_< IndexBufferInitData >( "IndexBufferInitData" );
 
 
-	// Shader
-	rttr::registration::class_< ShaderInputLayout >( "ShaderInputLayout" );
-	rttr::registration::class_< IShader >( "IShader" )
-		.property_readonly( "FilePath", &IShader::GetShaderFile )
-		.property_readonly( "MainFunction", &IShader::GetShaderEntry );
-
-	rttr::registration::class_< PixelShader >( "PixelShader" );
-	rttr::registration::class_< VertexShader >( "VertexShader" );
-
 	rttr::registration::class_< RenderTargetObject >( "RenderTargetObject" )
 		.property( "ColorBuffer", &RenderTargetObject::m_colorBuffer )
 		.property( "DepthBuffer", &RenderTargetObject::m_depthBuffer )
@@ -490,7 +481,7 @@ BufferObject::BufferObject( unsigned int elementSize, unsigned int elementCount 
 
 // ================================ //
 //
-TypeID		BufferInitData::GetAssetType	()
+TypeID		BufferInitData::GetAssetType	() const
 {	return TypeID::get< BufferObject >(); 	}
 
 //----------------------------------------------------------------------------------------------//

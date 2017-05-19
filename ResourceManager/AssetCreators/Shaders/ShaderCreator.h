@@ -37,21 +37,18 @@ public:
 
 public:
 
-	VertexShader*					CreateVertexShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
-	PixelShader*					CreatePixelShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
-	GeometryShader*					CreateGeometryShader		( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
-	ControlShader*					CreateControlShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
-	EvaluationShader*				CreateEvaluationShader		( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
-	ComputeShader*					CreateComputeShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	inline VertexShader*					CreateVertexShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	inline PixelShader*						CreatePixelShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	inline GeometryShader*					CreateGeometryShader		( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	inline ControlShader*					CreateControlShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	inline EvaluationShader*				CreateEvaluationShader		( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
+	inline ComputeShader*					CreateComputeShader			( const filesystem::Path& fileName, const std::string& shaderEntry = "main" );
 
 };
-
-
-
-
 
 
 }	// sw
 
 
+#include "ShaderCreator.inl"
 

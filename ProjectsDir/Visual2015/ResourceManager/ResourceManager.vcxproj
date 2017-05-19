@@ -54,7 +54,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp" />
-    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl" />
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
+      <FileType>Document</FileType>
+    </ClInclude>
     <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />
@@ -66,6 +68,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\..\..\Resources\MeshResources.cpp" />
+    <ClCompile Include="..\..\..\Resources\Shaders\Shaders.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9F71F0DA-1D72-4E96-93B7-5AC2C9CB6EDE}</ProjectGuid>

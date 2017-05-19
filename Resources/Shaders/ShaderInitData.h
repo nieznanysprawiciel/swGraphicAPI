@@ -38,6 +38,8 @@ public:
 		,	EntryFunction( "main" )
 	{}
 
+	virtual TypeID		GetAssetType	() const override;
+
 };
 
 
