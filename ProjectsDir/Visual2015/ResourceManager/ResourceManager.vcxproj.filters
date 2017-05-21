@@ -156,7 +156,10 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
       <Filter>ResourceManager\AssetCreators\Shaders</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\RMAssetsThreadAPI.h">
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.h">
+      <Filter>ResourceManager\AsyncLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadResponse.h">
       <Filter>ResourceManager\AsyncLoad</Filter>
     </ClInclude>
   </ItemGroup>
@@ -188,7 +191,7 @@
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp">
       <Filter>ResourceManager\AsyncLoad</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAssetsThreadAPI.cpp">
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp">
       <Filter>ResourceManager\AsyncLoad</Filter>
     </ClCompile>
   </ItemGroup>

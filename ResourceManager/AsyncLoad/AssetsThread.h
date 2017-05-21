@@ -8,7 +8,7 @@
 #include "swCommonLib/Common/Multithreading/QueueMT.h"
 
 #include "AssetLoadRequest.h"
-#include "RMAssetsThreadAPI.h"
+#include "RMAsyncLoaderAPI.h"
 
 #include <thread>
 
@@ -16,16 +16,41 @@
 namespace sw
 {
 
+/**@defgroup AsyncLoading Asynchronous Loading
+@ingroup AssetsManagement
+
+@copydoc AsyncLoadingPage
+
+
+@page AsyncLoadingPage Asynchronous Loading
+@tableofcontents
+
+@section AsyncLoadIntro Introduction
+
+ResourceManager loads assets synchronously in caller thread or can queue loading request and process them
+in internal thread. For managing this internal thread, AssetsThread was created. After asset is already loaded,
+AssetsThread calls delegate (@ref AsyncLoadHandler) specified by requestor to return loaded value.
+
+AsyncLoadHandler gets @ref AssetLoadResponse in parameter which contains desired resource, path to file which and
+IAssetLoadInfo structure info. Requestor is now allowed to do with this structure whatever he wants (for example
+he can move path and load info with std::move.
+
+All request are executed in order of pushing to queue. That means that there's guarantee that two calls to async load
+from the same thread will result in the same order of loads. There're no guaranties between threads.
+*/
+
+
 /**@brief Class for managing asynchronous assets loading.
 
-@todo Consider supporting muliple priority levels in future.
+@todo Consider supporting multiple priority levels in future.
+@todo Consider posibility to provide additional generic structure. Requestor can then identify, wich request was executed.
 
-@ingroup AssetsManagement*/
+@ingroup AsyncLoading*/
 class AssetsThread
 {
 private:
 
-	RMAssetsThreadAPI				m_resourceManager;
+	RMAsyncLoaderAPI				m_resourceManager;
 
 	QueueMT< AssetLoadRequest >		m_requests;
 
@@ -33,7 +58,7 @@ private:
 
 protected:
 public:
-	explicit		AssetsThread		( RMAssetsThreadAPI resourceManApi );
+	explicit		AssetsThread		( RMAsyncLoaderAPI resourceManApi );
 					~AssetsThread		();
 
 	/**@brief Breaks thread execution by sending end message to queue.*/

@@ -6,7 +6,7 @@
 */
 
 #include "swCommonLib/Common/RTTR.h"
-
+#include "swCommonLib/Common/TypesDefinitions.h"
 
 namespace sw
 {
@@ -28,7 +28,8 @@ public:
 
 };
 
-
+DEFINE_OPTR_TYPE( IAssetLoadInfo );
+DEFINE_PTR_TYPE( IAssetLoadInfo );
 
 
 }	// sw

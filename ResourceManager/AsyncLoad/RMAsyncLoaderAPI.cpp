@@ -7,7 +7,7 @@
 
 
 #include "swGraphicAPI/ResourceManager/stdafx.h"
-#include "RMAssetsThreadAPI.h"
+#include "RMAsyncLoaderAPI.h"
 
 
 namespace sw
@@ -15,7 +15,7 @@ namespace sw
 
 // ================================ //
 //
-RMAssetsThreadAPI::RMAssetsThreadAPI	( nResourceManager* manager )
+RMAsyncLoaderAPI::RMAsyncLoaderAPI	( nResourceManager* manager )
 	:	m_resourceManager( manager )
 {}
 
