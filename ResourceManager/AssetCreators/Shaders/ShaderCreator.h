@@ -13,7 +13,9 @@ namespace sw
 {
 
 
-/**@brief */
+/**@brief Creates shaders objects.
+
+@todo Implement functions to create shader from cource code in string and from compiled shaders.*/
 template< typename ShaderObjectType >
 class ShaderCreator : public IAssetCreator
 {

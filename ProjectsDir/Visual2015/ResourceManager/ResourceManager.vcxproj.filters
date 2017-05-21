@@ -43,6 +43,9 @@
     <Filter Include="Resources\PipelineStates">
       <UniqueIdentifier>{650d0f75-9ccb-45b3-9bdd-f330d291cd90}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager\AsyncLoad">
+      <UniqueIdentifier>{e42ecf68-a8c0-4bbf-8458-bf16bf57e47a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Rendering\IRenderer.h">
@@ -141,6 +144,21 @@
     <ClInclude Include="..\..\..\Resources\Shaders\Shaders.h">
       <Filter>Resources\Shaders</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\Cache\CacheManager.h">
+      <Filter>ResourceManager\Cache</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.h">
+      <Filter>ResourceManager\AsyncLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadRequest.h">
+      <Filter>ResourceManager\AsyncLoad</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
+      <Filter>ResourceManager\AssetCreators\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\RMAssetsThreadAPI.h">
+      <Filter>ResourceManager\AsyncLoad</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -164,11 +182,14 @@
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp">
       <Filter>ResourceManager\AssetCreators\Buffers</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
-      <Filter>ResourceManager\AssetCreators\Shaders</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\Resources\Shaders\Shaders.cpp">
       <Filter>Resources\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp">
+      <Filter>ResourceManager\AsyncLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAssetsThreadAPI.cpp">
+      <Filter>ResourceManager\AsyncLoad</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -28,6 +28,10 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadRequest.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\RMAssetsThreadAPI.h" />
+    <ClInclude Include="..\..\..\ResourceManager\Cache\CacheManager.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\IAssetCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\MemoryCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoader.h" />
@@ -58,6 +62,8 @@
       <FileType>Document</FileType>
     </ClInclude>
     <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAssetsThreadAPI.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp" />
