@@ -8,6 +8,7 @@
 #include "swCommonLib/Common/Multithreading/QueueMT.h"
 
 #include "AssetLoadRequest.h"
+#include "AssetLoadResponse.h"
 #include "RMAsyncLoaderAPI.h"
 
 #include <thread>
@@ -63,6 +64,9 @@ public:
 
 	/**@brief Breaks thread execution by sending end message to queue.*/
 	void			StopThread			();
+
+	/**@brief Adds new request to queue.*/
+	void			QueueRequest		( AssetLoadRequest&& request );
 
 private:
 

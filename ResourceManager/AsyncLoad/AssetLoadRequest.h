@@ -16,6 +16,21 @@
 namespace sw
 {
 
+class AssetsThread;
+
+
+namespace impl
+{
+
+class CreateEndMessage
+{	
+	friend class AssetsThread;
+	CreateEndMessage() {}
+};
+
+}
+
+
 
 /**@brief Queue element for asynchronous asset loading thread.
 
@@ -23,7 +38,7 @@ namespace sw
 struct AssetLoadRequest
 {
 	filesystem::Path		FilePath;
-	IAssetLoadInfoOPtr		LoadInfo;
+	IAssetLoadInfoPtr		LoadInfo;
 	AsyncLoadHandler		OnLoaded;
 
 private:
@@ -35,6 +50,12 @@ public:
 	AssetLoadRequest()
 		: EndMessage( false )
 	{}
+
+	AssetLoadRequest( const impl::CreateEndMessage& )
+		: EndMessage( true )
+	{}
+	
+	bool		IsEndMessage	() const			{ return EndMessage; }
 };
 
 }	// sw

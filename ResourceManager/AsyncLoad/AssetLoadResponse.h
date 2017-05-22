@@ -24,7 +24,7 @@ struct AssetLoadResponse
 {
 	ResourcePtr< ResourceObject >		Resource;
 	filesystem::Path					FilePath;		///< Path of loaded asset, the same that was used to call async request.
-	IAssetLoadInfoOPtr					LoadInfo;		///< Structure send to load asset. Can be nullptr.
+	IAssetLoadInfoPtr					LoadInfo;		///< Structure send to load asset. Can be nullptr.
 };
 
 /**@brief Delegate to invoke after asset is loaded.
