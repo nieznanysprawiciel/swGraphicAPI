@@ -15,6 +15,7 @@
 #include "AssetsFactory.h"
 #include "IAssetLoader.h"
 #include "Cache/IAssetCache.h"
+#include "AsyncLoad/AssetsThread.h"
 
 #include <vector>
 
@@ -36,7 +37,9 @@ protected:
 	AssetsFactoryOPtr			m_assetsFactory;		///< Factory for generic and non generic assets creation.
 	IAssetCacheOPtr				m_cache;				///< Assets cache.
 
-	std::vector< IAssetLoaderOPtr >		m_loaders;	///< File loaders.
+	std::vector< IAssetLoaderOPtr >		m_loaders;		///< File loaders.
+
+	AssetsThread				m_asyncThread;			///< Thread used for asynchronous loading.
 
 public:
 

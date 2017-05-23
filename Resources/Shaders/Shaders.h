@@ -11,6 +11,11 @@
 #include "swCommonLib/System/Path.h"
 
 
+/**@defgroup Shaders Shaders
+@ingroup Resources
+*/
+
+
 
 /**@brief Shader type flag.
 @ingroup Shaders*/

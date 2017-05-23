@@ -26,6 +26,7 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreateInfo.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadRequest.h" />
@@ -37,6 +38,7 @@
     <ClInclude Include="..\..\..\ResourceManager\Cache\MemoryCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h" />
+    <ClInclude Include="..\..\..\ResourceManager\Loaders\ShaderLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\nResourceManager.h" />
     <ClInclude Include="..\..\..\ResourceManager\ResourceContainer.h" />
     <ClInclude Include="..\..\..\ResourceManager\ResourceManager.h" />
@@ -53,6 +55,8 @@
     <ClInclude Include="..\..\..\Resources\ResourceObject.h" />
     <ClInclude Include="..\..\..\Resources\ResourcePtr.h" />
     <ClInclude Include="..\..\..\Resources\ResourcesFactory.h" />
+    <ClInclude Include="..\..\..\Resources\Shaders\InputLayout.h" />
+    <ClInclude Include="..\..\..\Resources\Shaders\LayoutInitData.h" />
     <ClInclude Include="..\..\..\Resources\Shaders\ShaderInitData.h" />
     <ClInclude Include="..\..\..\Resources\Shaders\Shaders.h" />
     <ClInclude Include="..\..\..\Resources\SwapChain.h" />
@@ -62,10 +66,12 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
       <FileType>Document</FileType>
     </ClInclude>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\Loaders\ShaderLoader.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\stdafx.cpp">

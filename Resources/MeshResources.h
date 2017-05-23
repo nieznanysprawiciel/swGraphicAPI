@@ -21,6 +21,8 @@
 #include "swGraphicAPI/Resources/BufferInitData.h"
 
 #include "swGraphicAPI/Resources/Shaders/Shaders.h"
+#include "swGraphicAPI/Resources/Shaders/InputLayout.h"
+#include "swGraphicAPI/Resources/Shaders/LayoutInitData.h"
 
 #include <DirectXMath.h>
 
@@ -319,52 +321,6 @@ public:
 
 	virtual std::string			GetResourceName	() const override;	///<@todo RenderTargety powinny mieæ swoje nazwy.
 };
-
-//----------------------------------------------------------------------------------------------//
-//								ShaderInputLayout												//
-//----------------------------------------------------------------------------------------------//
-
-/**@defgroup Shaders Shaders
-@ingroup Resources
-*/
-
-/**@brief Klasa przechowuje layout wierzcho³ka trafiaj¹cego do
-vertex shadera.
-@ingroup Shaders
-@ingroup Buffers
-@ingroup Resources*/
-class ShaderInputLayout : public IShaderInputLayout
-{
-	RTTR_ENABLE( IShaderInputLayout );
-	friend ObjectDeleter< ShaderInputLayout >;
-private:
-protected:
-	virtual ~ShaderInputLayout() = default;
-public:
-	ShaderInputLayout() = default;
-
-	virtual std::string			GetResourceName	() const override { return ""; }
-};
-
-/**@brief Klasa przechowuje opis layoutu wierzcho³ka, na podstawie którego
-tworzony jest obiekt layoutu.
-@ingroup Buffers
-@ingroup Shaders
-@ingroup Resources*/
-class InputLayoutDescriptor
-{
-private:
-	std::wstring				m_inputLayoutName;
-protected:
-public:
-	InputLayoutDescriptor( const std::wstring& layoutName ) : m_inputLayoutName( layoutName ){}
-	virtual ~InputLayoutDescriptor() = default;
-
-	virtual void		AddRow		( const char* semanticName, ResourceFormat format, unsigned int inputSlot, unsigned int byteOffset, bool perInstance, unsigned int instanceDataStep ) = 0;
-
-	std::wstring&		GetName		() { return m_inputLayoutName; }
-};
-
 
 
 //----------------------------------------------------------------------------------------------//

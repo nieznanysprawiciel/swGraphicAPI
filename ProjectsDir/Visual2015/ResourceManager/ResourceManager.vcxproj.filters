@@ -46,6 +46,9 @@
     <Filter Include="ResourceManager\AsyncLoad">
       <UniqueIdentifier>{e42ecf68-a8c0-4bbf-8458-bf16bf57e47a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager\Loaders">
+      <UniqueIdentifier>{0acb497f-3d98-4a47-97da-9cc0b816e03b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Rendering\IRenderer.h">
@@ -162,6 +165,18 @@
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadResponse.h">
       <Filter>ResourceManager\AsyncLoad</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\Loaders\ShaderLoader.h">
+      <Filter>ResourceManager\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Resources\Shaders\LayoutInitData.h">
+      <Filter>Resources\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Resources\Shaders\InputLayout.h">
+      <Filter>Resources\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.h">
+      <Filter>ResourceManager\AssetCreators\Shaders</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -193,6 +208,12 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp">
       <Filter>ResourceManager\AsyncLoad</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\Loaders\ShaderLoader.cpp">
+      <Filter>ResourceManager\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.cpp">
+      <Filter>ResourceManager\AssetCreators\Shaders</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

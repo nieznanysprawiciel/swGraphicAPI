@@ -16,6 +16,7 @@ namespace sw
 // ================================ //
 //
 nResourceManager::nResourceManager()
+	:	m_asyncThread( RMAsyncLoaderAPI( this ) )
 {
 	m_cache = MemoryCacheOPtr( new MemoryCache() );
 	m_assetsFactory = AssetsFactoryOPtr( new AssetsFactory( m_cache.get() ) );

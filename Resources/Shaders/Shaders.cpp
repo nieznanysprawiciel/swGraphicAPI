@@ -7,6 +7,8 @@
 
 
 #include "ShaderInitData.h"
+#include "LayoutInitData.h"
+#include "InputLayout.h"
 #include "Shaders.h"
 
 
@@ -54,3 +56,12 @@ TypeID			ShaderInitData::GetAssetType() const
 
 
 }	// sw
+
+
+
+// ================================ //
+//
+TypeID			InputLayoutDescriptor::GetAssetType() const
+{
+	return TypeID::get< ShaderInputLayout >();
+}
