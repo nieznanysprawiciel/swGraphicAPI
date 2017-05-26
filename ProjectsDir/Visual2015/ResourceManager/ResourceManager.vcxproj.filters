@@ -49,6 +49,9 @@
     <Filter Include="ResourceManager\Loaders">
       <UniqueIdentifier>{0acb497f-3d98-4a47-97da-9cc0b816e03b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ResourceManager\PathTranslators">
+      <UniqueIdentifier>{17bac032-4543-4380-bd48-d3b8e5062c6f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\Rendering\IRenderer.h">
@@ -176,6 +179,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.h">
       <Filter>ResourceManager\AssetCreators\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\PathTranslators\Translator.h">
+      <Filter>ResourceManager\PathTranslators</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\nResourceContainer.h">
+      <Filter>ResourceManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

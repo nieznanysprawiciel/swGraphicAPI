@@ -9,7 +9,7 @@
 #include "swGraphicAPI/Resources/BlendingState.h"
 #include "swGraphicAPI/Resources/RasterizerState.h"
 #include "swGraphicAPI/Resources/DepthStencilState.h"
-#include "swGraphicAPI/ResourceManager/ResourceContainer.h"
+#include "swGraphicAPI/ResourceManager/nResourceContainer.h"
 
 
 #include "AssetsFactory.h"
@@ -18,6 +18,8 @@
 #include "AsyncLoad/AssetsThread.h"
 
 #include <vector>
+#include <map>
+
 
 
 namespace sw
@@ -31,8 +33,12 @@ namespace sw
 @ingroup AssetsManagement*/
 class nResourceManager
 {
+	typedef std::map< TypeID, ResourceContainer< ResourceObject > > ResourcesMap;
+
 private:
 protected:
+
+	ResourcesMap				m_resources;
 
 	AssetsFactoryOPtr			m_assetsFactory;		///< Factory for generic and non generic assets creation.
 	IAssetCacheOPtr				m_cache;				///< Assets cache.
@@ -84,6 +90,8 @@ public:
 	GeometryShader*					LoadGeometryShader			( const std::wstring& fileName, const std::string& shaderEntry );
 	ControlShader*					LoadControlShader			( const std::wstring& fileName, const std::string& shaderEntry );
 	EvaluationShader*				LoadEvaluationShader		( const std::wstring& fileName, const std::string& shaderEntry );
+
+	ResourcePtr< ResourceObject >	LoadGeneric					( const filesystem::Path& name, IAssetLoadInfo* desc, TypeID type );
 	///@}
 
 	///@name Resource creation
@@ -101,6 +109,7 @@ public:
 	ResourcePtr< RasterizerState >	CreateRasterizerState		( const std::wstring& name, const RasterizerStateInfo& info );
 	ResourcePtr< DepthStencilState >CreateDepthStencilState		( const std::wstring& name, const DepthStencilInfo& info );
 
+	ResourcePtr< ResourceObject >	CreateGenericAsset			( const filesystem::Path& name, TypeID assetType, IAssetCreateInfo&& createInfo );
 	///@}
 
 	RenderTargetObject*				AddRenderTarget				( RenderTargetObject* renderTarget, const std::wstring& name );
@@ -119,6 +128,10 @@ public:
 	
 	std::vector< ResourcePtr< RenderTargetObject > >	ListRenderTargets	();
 	///@}
+
+protected:
+	ResourcePtr< ResourceObject >						FindResource		( const filesystem::Path& name, TypeID resourceType );
+
 };
 
 }	// sw

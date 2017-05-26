@@ -39,7 +39,9 @@
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h" />
     <ClInclude Include="..\..\..\ResourceManager\Loaders\ShaderLoader.h" />
+    <ClInclude Include="..\..\..\ResourceManager\nResourceContainer.h" />
     <ClInclude Include="..\..\..\ResourceManager\nResourceManager.h" />
+    <ClInclude Include="..\..\..\ResourceManager\PathTranslators\Translator.h" />
     <ClInclude Include="..\..\..\ResourceManager\ResourceContainer.h" />
     <ClInclude Include="..\..\..\ResourceManager\ResourceManager.h" />
     <ClInclude Include="..\..\..\ResourceManager\stdafx.h" />
