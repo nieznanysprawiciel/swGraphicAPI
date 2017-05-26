@@ -38,6 +38,7 @@
     <ClInclude Include="..\..\..\ResourceManager\Cache\MemoryCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h" />
+    <ClInclude Include="..\..\..\ResourceManager\LoadBarrier.h" />
     <ClInclude Include="..\..\..\ResourceManager\Loaders\ShaderLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\nResourceContainer.h" />
     <ClInclude Include="..\..\..\ResourceManager\nResourceManager.h" />
@@ -73,6 +74,7 @@
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\LoadBarrier.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Loaders\ShaderLoader.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp" />
