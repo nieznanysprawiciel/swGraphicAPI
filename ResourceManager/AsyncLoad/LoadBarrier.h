@@ -20,6 +20,7 @@ namespace sw
 /**@brief Class describing asset waiting for beeing load.*/
 class WaitingAsset
 {
+	friend class LoadBarrier;
 private:
 
 	filesystem::Path			m_fileName;
@@ -30,14 +31,22 @@ private:
 	std::mutex					m_lock;
 
 public:
+	WaitingAsset		() = default;
 	WaitingAsset		( const filesystem::Path& filePath );
 	~WaitingAsset		();
+
+
+private:
 
 	/**@brief Function blocks until resource will be loaded.
 	@return Returns true if it was last waiting thread.*/
 	bool				WaitUntilLoaded		();
 
+	/**@brief Increments loading threads count.*/
+	void				RequestAsset		();
 
+	/**@brief Check if file is during laoding.*/
+	bool				Compare				( const filesystem::Path& filePath );
 };
 
 
@@ -47,13 +56,18 @@ class LoadBarrier
 {
 private:
 
-	std::list< WaitingAsset >		m_waitingAssets;
+	std::vector< WaitingAsset* >	m_waitingAssets;
 	std::mutex						m_lock;
 
 public:
+	~LoadBarrier();
 
+	/**@brief Tries to access asset described by filePath. If asset exists, function increments waiting threads counter.
+	Otherwise new WaitingAsset object is created to block future loads.*/
+	std::pair< WaitingAsset*, bool >		Access				( const filesystem::Path& filePath );
 
-	std::pair< WaitingAsset*, bool >		Access		( const filesystem::Path& filePath );
+	/**@brief Function waits until asset will be loaded.*/
+	void									WaitUntilLoaded		( WaitingAsset* asset );
 };
 
 

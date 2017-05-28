@@ -32,13 +32,13 @@
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadRequest.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadResponse.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\CacheManager.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\IAssetCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\Cache\MemoryCache.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h" />
-    <ClInclude Include="..\..\..\ResourceManager\LoadBarrier.h" />
     <ClInclude Include="..\..\..\ResourceManager\Loaders\ShaderLoader.h" />
     <ClInclude Include="..\..\..\ResourceManager\nResourceContainer.h" />
     <ClInclude Include="..\..\..\ResourceManager\nResourceManager.h" />
@@ -72,9 +72,9 @@
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
-    <ClCompile Include="..\..\..\ResourceManager\LoadBarrier.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Loaders\ShaderLoader.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp" />

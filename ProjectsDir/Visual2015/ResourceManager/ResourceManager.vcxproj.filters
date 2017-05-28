@@ -186,8 +186,8 @@
     <ClInclude Include="..\..\..\ResourceManager\nResourceContainer.h">
       <Filter>ResourceManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ResourceManager\LoadBarrier.h">
-      <Filter>ResourceManager</Filter>
+    <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.h">
+      <Filter>ResourceManager\AsyncLoad</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -227,8 +227,8 @@
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.cpp">
       <Filter>ResourceManager\AssetCreators\Shaders</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ResourceManager\LoadBarrier.cpp">
-      <Filter>ResourceManager</Filter>
+    <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.cpp">
+      <Filter>ResourceManager\AsyncLoad</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
