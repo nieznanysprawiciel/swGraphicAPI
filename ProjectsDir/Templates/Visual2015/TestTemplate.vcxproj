@@ -24,7 +24,6 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{22C79F18-F938-4A9E-A4B0-B77E8F87429D}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>TestResourceManager</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -146,7 +145,7 @@
   </ItemDefinitionGroup>
   
   <PropertyGroup Label="UserMacros">
-    <TestName>TestResourceManager</TestName>
+    <TestName>$(ProjectName)</TestName>
     <TestLibDir>$(LibDir)$(TestName)\</TestLibDir>
     <TestSourceDir>$(SourceDir)$(TestName)\</TestSourceDir>
     <TestFileName>$(TestName)</TestFileName>
@@ -158,9 +157,6 @@
     <OutDir>$(TestBuildDir)</OutDir>
   </PropertyGroup>
   
-  <ItemGroup>
-    <ClCompile Include="..\..\..\..\Tests\TestResourceManager\main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
