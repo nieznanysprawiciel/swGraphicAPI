@@ -69,7 +69,7 @@ public:
 	Otherwise new WaitingAsset object is created to block future loads.
 	@return Function returns true if asset already existed. If WaitingAsset was created in this function call function returns true.
 	Note: WaitingAsset should never be nullptr.*/
-	std::pair< WaitingAsset*, bool >		Access				( const filesystem::Path& filePath );
+	std::pair< WaitingAsset*, bool >		RequestAsset		( const filesystem::Path& filePath );
 
 	/**@brief Function waits until asset will be loaded.*/
 	void									WaitUntilLoaded		( WaitingAsset* asset );

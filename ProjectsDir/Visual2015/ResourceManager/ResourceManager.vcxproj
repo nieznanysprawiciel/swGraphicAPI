@@ -74,6 +74,7 @@
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\Cache\CacheManager.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Cache\MemoryCache.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\Loaders\ShaderLoader.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp" />

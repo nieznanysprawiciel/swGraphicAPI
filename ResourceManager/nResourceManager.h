@@ -11,11 +11,13 @@
 #include "swGraphicAPI/Resources/DepthStencilState.h"
 #include "swGraphicAPI/ResourceManager/nResourceContainer.h"
 
+#include "swCommonLib/Common/Multithreading/ReaderWriterLock.h"
 
 #include "AssetsFactory.h"
 #include "IAssetLoader.h"
-#include "Cache/IAssetCache.h"
+#include "Cache/CacheManager.h"
 #include "AsyncLoad/AssetsThread.h"
+#include "AsyncLoad/LoadBarrier.h"
 
 #include <vector>
 #include <map>
@@ -25,6 +27,8 @@
 namespace sw
 {
 
+
+typedef std::vector< ResourcePtr< ResourceObject > > AssetsVec;
 
 
 /**@brief Future implementation of ResourceManager.
@@ -40,8 +44,11 @@ protected:
 
 	ResourcesMap				m_resources;
 
+	ReaderWriterLock			m_rwLock;
+	LoadBarrier					m_waitingAssets;		///< Barrier protects from loading one asset multiple times.
+
+	CacheManager				m_cacheManager;			///< Assets cache.
 	AssetsFactoryOPtr			m_assetsFactory;		///< Factory for generic and non generic assets creation.
-	IAssetCacheOPtr				m_cache;				///< Assets cache.
 
 	std::vector< IAssetLoaderOPtr >		m_loaders;		///< File loaders.
 
@@ -91,7 +98,7 @@ public:
 	ControlShader*					LoadControlShader			( const std::wstring& fileName, const std::string& shaderEntry );
 	EvaluationShader*				LoadEvaluationShader		( const std::wstring& fileName, const std::string& shaderEntry );
 
-	ResourcePtr< ResourceObject >	LoadGeneric					( const filesystem::Path& name, IAssetLoadInfo* desc, TypeID type );
+	ResourcePtr< ResourceObject >	LoadGeneric					( const filesystem::Path& assetName, IAssetLoadInfo* desc, TypeID type );
 	///@}
 
 	///@name Resource creation
@@ -130,8 +137,12 @@ public:
 	///@}
 
 protected:
-	ResourcePtr< ResourceObject >						FindResource		( const filesystem::Path& name, TypeID resourceType );
 
+	ResourcePtr< ResourceObject >						FindResource		( const filesystem::Path& assetName, TypeID assetType );
+	IAssetLoader*										FindLoader			( const filesystem::Path& assetName, TypeID assetType );
+	ResourcePtr< ResourceObject >						FindRequestedAsset	( const filesystem::Path& assetName, TypeID assetType, const AssetsVec& loadedAssets );
+
+	ResourcePtr< ResourceObject >						LoadingImpl			( const filesystem::Path& assetName, IAssetLoadInfo* desc, TypeID assetType );
 };
 
 }	// sw

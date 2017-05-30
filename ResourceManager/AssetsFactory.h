@@ -6,6 +6,7 @@
 */
 
 #include "AssetCreators/IAssetCreator.h"
+#include "swGraphicAPI/ResourceManager/Cache/CacheManager.h"
 
 
 #include <vector>
@@ -33,10 +34,10 @@ protected:
 	uint8				m_GSCreatorIdx;
 
 	std::vector< IAssetCreatorPtr >		m_assetCreators;
-	IAssetCache*						m_cacheRef;				///< Pointer to cache object. This class is not owner.
+	CacheManager*						m_cacheRef;				///< Pointer to CacheManager. This class is not owner.
 
 public:
-	explicit		AssetsFactory		( IAssetCache* cache );
+	explicit		AssetsFactory		( CacheManager* cache );
 					~AssetsFactory		() = default;
 
 	/**@brief Function for generic asset creation.

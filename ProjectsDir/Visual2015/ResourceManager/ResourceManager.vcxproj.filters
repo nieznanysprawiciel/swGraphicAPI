@@ -230,5 +230,8 @@
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.cpp">
       <Filter>ResourceManager\AsyncLoad</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\Cache\CacheManager.cpp">
+      <Filter>ResourceManager\Cache</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

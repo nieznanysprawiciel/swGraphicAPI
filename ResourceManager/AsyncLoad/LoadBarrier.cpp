@@ -84,7 +84,7 @@ LoadBarrier::~LoadBarrier()
 
 // ================================ //
 //
-std::pair< WaitingAsset*, bool >		LoadBarrier::Access				( const filesystem::Path& filePath )
+std::pair< WaitingAsset*, bool >		LoadBarrier::RequestAsset		( const filesystem::Path& filePath )
 {
 	std::unique_lock< std::mutex > lock( m_lock );
 

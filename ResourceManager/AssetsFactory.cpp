@@ -24,7 +24,7 @@ namespace sw
 
 // ================================ //
 //
-AssetsFactory::AssetsFactory	( IAssetCache* cache )
+AssetsFactory::AssetsFactory	( CacheManager* cache )
 	:	m_cacheRef( cache )
 {
 	RegisterDefaults();
