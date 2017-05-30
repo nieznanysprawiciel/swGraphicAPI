@@ -51,9 +51,9 @@ void		FakeLoadAsset		( int threadNum )
 //
 void		LoadingThread		( int threadNum )
 {
-	auto result = gLoadBarrier.Access( assetFile );
+	auto result = gLoadBarrier.RequestAsset( assetFile );
 
-	// Allow other threads to call Access.
+	// Allow other threads to call RequestAsset.
 	gPreAccessBarrier.ArriveAndWait();
 	
 	threadsInternalResult[ threadNum ] = result.second;
@@ -66,10 +66,10 @@ void		LoadingThread		( int threadNum )
 //
 void		RequestingThread	( int threadNum )
 {
-	// LoadingThread must Access first. Wait for it.
+	// LoadingThread must RequestAsset first. Wait for it.
 	gPreAccessBarrier.ArriveAndWait();
 
-	auto result = gLoadBarrier.Access( assetFile );
+	auto result = gLoadBarrier.RequestAsset( assetFile );
 
 	threadsInternalResult[ threadNum ] = result.second;
 	notNullWaitingAsset[ threadNum ] = result.first != nullptr;
@@ -84,10 +84,10 @@ void		RequestingThread	( int threadNum )
 //
 void		IndependentAssetThread	( int threadNum )
 {
-	// LoadingThread must Access first. Wait for it.
+	// LoadingThread must RequestAsset first. Wait for it.
 	gPreAccessBarrier.ArriveAndWait();
 
-	auto result = gLoadBarrier.Access( independentAsset );
+	auto result = gLoadBarrier.RequestAsset( independentAsset );
 
 	// Independent thread should pass without blocking. result.second should be false.
 	threadsInternalResult[ threadNum ] = result.second;
@@ -125,8 +125,8 @@ TEST_CASE( "LoadBarrier" )
 
 	CHECK( gOrderChecker[ 0 ] == 0 );
 	CHECK( gOrderChecker[ 1 ] == 0 );
-	CHECK( gOrderChecker[ 2 ] == 1 );
-	CHECK( gOrderChecker[ 3 ] == 2 );
+	CHECK( ( gOrderChecker[ 2 ] == 1 || gOrderChecker[ 2 ] == 2 ) );
+	CHECK( ( gOrderChecker[ 3 ] == 1 || gOrderChecker[ 3 ] == 2 ) );
 
 }
 
