@@ -45,6 +45,9 @@ private:
 	/**@brief Increments loading threads count.*/
 	void				RequestAsset		();
 
+	/**@brief Notify all threads waiting for this asset.*/
+	void				LoadingCompleted	();
+
 	/**@brief Check if file is during laoding.*/
 	bool				Compare				( const filesystem::Path& filePath );
 };
@@ -63,11 +66,16 @@ public:
 	~LoadBarrier();
 
 	/**@brief Tries to access asset described by filePath. If asset exists, function increments waiting threads counter.
-	Otherwise new WaitingAsset object is created to block future loads.*/
+	Otherwise new WaitingAsset object is created to block future loads.
+	@return Function returns true if asset already existed. If WaitingAsset was created in this function call function returns true.
+	Note: WaitingAsset should never be nullptr.*/
 	std::pair< WaitingAsset*, bool >		Access				( const filesystem::Path& filePath );
 
 	/**@brief Function waits until asset will be loaded.*/
 	void									WaitUntilLoaded		( WaitingAsset* asset );
+
+	/**@brief Notify all threads waiting for this asset.*/
+	void									LoadingCompleted	( const filesystem::Path& filePath );
 };
 
 

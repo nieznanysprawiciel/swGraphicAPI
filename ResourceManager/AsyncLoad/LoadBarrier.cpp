@@ -15,7 +15,7 @@ namespace sw
 // ================================ //
 //
 WaitingAsset::WaitingAsset	( const filesystem::Path& filePath )
-	:	m_fileName( m_fileName )
+	:	m_fileName( filePath )
 	,	m_numWaiting( 0 )
 	,	m_ready( false )
 {}
@@ -25,8 +25,7 @@ WaitingAsset::WaitingAsset	( const filesystem::Path& filePath )
 WaitingAsset::~WaitingAsset()
 {
 	// @todo It won't work :(
-	m_ready = true;
-	m_condition.notify_all();
+	LoadingCompleted();
 }
 
 // ================================ //
@@ -50,6 +49,17 @@ bool			WaitingAsset::WaitUntilLoaded		()
 void			WaitingAsset::RequestAsset			()
 {
 	m_numWaiting++;
+}
+
+// ================================ //
+//
+void			WaitingAsset::LoadingCompleted		()
+{
+	m_lock.lock();
+	m_ready = true;
+	m_lock.unlock();
+
+	m_condition.notify_all();
 }
 
 // ================================ //
@@ -83,7 +93,7 @@ std::pair< WaitingAsset*, bool >		LoadBarrier::Access				( const filesystem::Pat
 	{
 		if( asset->Compare( filePath ) )
 		{
-			assert( assetWait != nullptr );		// Should be only one file in waiting vector.
+			assert( assetWait == nullptr );		// Should be only one file in waiting vector.
 			assetWait = asset;
 		}
 	}
@@ -122,6 +132,21 @@ void									LoadBarrier::WaitUntilLoaded	( WaitingAsset* asset )
 		}
 
 		assert( removed );
+	}
+}
+
+// ================================ //
+//
+void									LoadBarrier::LoadingCompleted	( const filesystem::Path& filePath )
+{
+	std::unique_lock< std::mutex > lock( m_lock );
+
+	for( auto asset : m_waitingAssets )
+	{
+		if( asset->Compare( filePath ) )
+			asset->LoadingCompleted();
+		
+		// WaitingAsset will be removed when last thread will leave waiting lock.
 	}
 }
 

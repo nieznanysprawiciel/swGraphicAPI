@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-
   <Import Project="..\..\Paths.props" />
-
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -144,9 +142,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  
   <PropertyGroup Label="UserMacros">
-    <TestName>TestResourceManager</TestName>
+    <TestName>$(ProjectName)</TestName>
     <TestLibDir>$(LibDir)$(TestName)\</TestLibDir>
     <TestSourceDir>$(SourceDir)$(TestName)\</TestSourceDir>
     <TestFileName>$(TestName)</TestFileName>
@@ -157,9 +154,17 @@
     <TargetName>$(TestFileName)</TargetName>
     <OutDir>$(TestBuildDir)</OutDir>
   </PropertyGroup>
-  
   <ItemGroup>
+    <ClCompile Include="..\..\..\..\Tests\TestResourceManager\LoadBarrierTest.cpp" />
     <ClCompile Include="..\..\..\..\Tests\TestResourceManager\main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\swCommonLib\Projects\Visual2015\CommonBase\CommonBase.vcxproj">
+      <Project>{9abcbab4-05b4-47c5-b5d8-f201559fd096}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ResourceManager\ResourceManager.vcxproj">
+      <Project>{9f71f0da-1d72-4e96-93b7-5ac2c9cb6ede}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
