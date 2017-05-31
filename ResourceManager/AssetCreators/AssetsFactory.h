@@ -5,8 +5,7 @@
 @copyright File is part of Sleeping Wombat Libraries.
 */
 
-#include "AssetCreators/IAssetCreator.h"
-#include "swGraphicAPI/ResourceManager/Cache/CacheManager.h"
+#include "IAssetCreator.h"
 
 
 #include <vector>
@@ -34,10 +33,9 @@ protected:
 	uint8				m_GSCreatorIdx;
 
 	std::vector< IAssetCreatorPtr >		m_assetCreators;
-	CacheManager*						m_cacheRef;				///< Pointer to CacheManager. This class is not owner.
 
 public:
-	explicit		AssetsFactory		( CacheManager* cache );
+	explicit		AssetsFactory		();
 					~AssetsFactory		() = default;
 
 	/**@brief Function for generic asset creation.
@@ -61,6 +59,11 @@ public:
 	ResourcePtr< BufferObject >		CreateIndexBuffer			( const filesystem::Path& name, const IndexBufferInitData& data );
 	ResourcePtr< BufferObject >		CreateConstantsBuffer		( const filesystem::Path& name, const uint8* buffer, unsigned int size );
 	ResourcePtr< BufferObject >		CreateConstantsBuffer		( const filesystem::Path& name, const ConstantBufferInitData& data );
+
+
+private:
+
+	IAssetCreator*			FindCreator				( TypeID assetType) const;
 };
 
 

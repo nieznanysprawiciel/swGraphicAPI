@@ -23,12 +23,12 @@
     <ClInclude Include="..\..\..\Rendering\IGraphicAPIInitializer.h" />
     <ClInclude Include="..\..\..\Rendering\IRenderer.h" />
     <ClInclude Include="..\..\..\Rendering\RenderCommands.h" />
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreateInfo.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.h" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.h" />
-    <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadRequest.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetLoadResponse.h" />
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.h" />
@@ -65,12 +65,12 @@
     <ClInclude Include="..\..\..\Resources\SwapChain.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Buffers\BufferCreator.cpp" />
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\Shaders\ShaderCreator.inl">
       <FileType>Document</FileType>
     </ClInclude>
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\Shaders\LayoutCreator.cpp" />
-    <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\AssetsThread.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.cpp" />
     <ClCompile Include="..\..\..\ResourceManager\AsyncLoad\RMAsyncLoaderAPI.cpp" />

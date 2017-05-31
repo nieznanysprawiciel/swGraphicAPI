@@ -24,8 +24,7 @@ namespace sw
 
 // ================================ //
 //
-AssetsFactory::AssetsFactory	( CacheManager* cache )
-	:	m_cacheRef( cache )
+AssetsFactory::AssetsFactory	()
 {
 	RegisterDefaults();
 }
@@ -71,6 +70,33 @@ void			AssetsFactory::RegisterDefaults		()
 	RegisterCreator( IAssetCreatorPtr( new ShaderCreator< GeometryShader >() ) );
 	m_GSCreatorIdx = (uint8)m_assetCreators.size() - 1;
 
+}
+
+// ================================ //
+//
+ResourceObject*			AssetsFactory::CreateAsset		( const filesystem::Path& assetName, TypeID assetType, IAssetCreateInfo&& createInfo )
+{
+	assert( !"Implement me" );
+
+	// We need to implement caching mechanism here.
+
+	IAssetCreator* creator = FindCreator( assetType );
+	ResourceObject* resource = creator->Create( assetName, std::move( createInfo ) );
+
+	return resource;
+}
+
+// ================================ //
+//
+IAssetCreator*			AssetsFactory::FindCreator		( TypeID assetType ) const
+{
+	for( size_t i = 0; i < m_assetCreators.size(); i++ )
+	{
+		if( m_assetCreators[ i ]->GetAssetType() == assetType )
+			return m_assetCreators[ i ].get();
+	}
+
+	return nullptr;
 }
 
 }	// sw

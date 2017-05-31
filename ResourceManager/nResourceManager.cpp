@@ -18,7 +18,7 @@ namespace sw
 nResourceManager::nResourceManager()
 	:	m_asyncThread( RMAsyncLoaderAPI( this ) )
 {
-	m_assetsFactory = AssetsFactoryOPtr( new AssetsFactory( &m_cacheManager ) );
+	m_assetsFactory = AssetsFactoryOPtr( new AssetsFactory() );
 }
 
 // ================================ //
@@ -66,6 +66,8 @@ ResourcePtr< ResourceObject >			nResourceManager::LoadGeneric				( const filesys
 //
 ResourcePtr< ResourceObject >			nResourceManager::CreateGenericAsset		( const filesystem::Path& name, TypeID assetType, IAssetCreateInfo&& createInfo )
 {
+
+
 	return ResourcePtr<ResourceObject>();
 }
 
@@ -101,6 +103,7 @@ IAssetLoader*							nResourceManager::FindLoader				( const filesystem::Path& as
 
 	return nullptr;
 }
+
 
 // ================================ //
 //

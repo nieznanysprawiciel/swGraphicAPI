@@ -120,9 +120,6 @@
     <ClInclude Include="..\..\..\ResourceManager\IAssetLoadInfo.h">
       <Filter>ResourceManager</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\ResourceManager\AssetsFactory.h">
-      <Filter>ResourceManager</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\IAssetCreator.h">
       <Filter>ResourceManager\AssetCreators</Filter>
     </ClInclude>
@@ -189,6 +186,9 @@
     <ClInclude Include="..\..\..\ResourceManager\AsyncLoad\LoadBarrier.h">
       <Filter>ResourceManager\AsyncLoad</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.h">
+      <Filter>ResourceManager\AssetCreators</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -199,9 +199,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\stdafx.cpp">
       <Filter>PrecompiledHeader</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\ResourceManager\AssetsFactory.cpp">
-      <Filter>ResourceManager</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\nResourceManager.cpp">
       <Filter>ResourceManager</Filter>
@@ -232,6 +229,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\ResourceManager\Cache\CacheManager.cpp">
       <Filter>ResourceManager\Cache</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.cpp">
+      <Filter>ResourceManager\AssetCreators</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

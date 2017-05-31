@@ -13,7 +13,7 @@
 
 #include "swCommonLib/Common/Multithreading/ReaderWriterLock.h"
 
-#include "AssetsFactory.h"
+#include "AssetCreators/AssetsFactory.h"
 #include "IAssetLoader.h"
 #include "Cache/CacheManager.h"
 #include "AsyncLoad/AssetsThread.h"
@@ -62,41 +62,41 @@ public:
 
 
 
-	RenderTargetObject*				CreateRenderTarget			( const std::wstring& name, const RenderTargetDescriptor& renderTargetDescriptor );
+	RenderTargetObject*			CreateRenderTarget			( const filesystem::Path& name, const RenderTargetDescriptor& renderTargetDescriptor );
 
 	///@name Geting existing resource
 	///@detail Gets resource if exist otherwise returns nullptr.
 	///@{
 
-	BlendingState*				GetBlendingState			( const std::wstring& name );
-	RasterizerState*			GetRasterizerState			( const std::wstring& name );
-	DepthStencilState*			GetDepthStencilState		( const std::wstring& name );
+	BlendingState*				GetBlendingState			( const filesystem::Path& name );
+	RasterizerState*			GetRasterizerState			( const filesystem::Path& name );
+	DepthStencilState*			GetDepthStencilState		( const filesystem::Path& name );
 
 	BlendingState*				GetBlendingState			( const BlendingInfo& info );
 	RasterizerState*			GetRasterizerState			( const RasterizerStateInfo& info );
 	DepthStencilState*			GetDepthStencilState		( const DepthStencilInfo& info );
 
-	RenderTargetObject*			GetRenderTarget				( const std::wstring& name );	///<Zwraca RenderTarget o podanej nazwie, je¿eli jest wczytany.
-	VertexShader*				GetVertexShader				( const std::wstring& name );	///<Zwraca vertex shader o podanej nazwie, je¿eli jest wczytany.
-	PixelShader*				GetPixelShader				( const std::wstring& name );	///<Zwraca pixel shader o podanej nazwie, je¿eli jest wczytany.
-	TextureObject*				GetTexture					( const std::wstring& name );	///<Zwraca teksturê o podanej nazwie, je¿eli jest wczytany.
-	BufferObject*				GetVertexBuffer				( const std::wstring& name );	///<Zwraca bufor wierzcho³ków o podanej nazwie, je¿eli jest wczytany.
-	BufferObject*				GetConstantBuffer			( const std::wstring& name );	///<Zwraca bufor sta³ych o podanej nazwie, je¿eli jest wczytany.
-	BufferObject*				GetIndexBuffer				( const std::wstring& name );	///<Zwraca bufor indeksów o podanej nazwie, je¿eli jest wczytany.
-	ShaderInputLayout*			GetLayout					( const std::wstring& name );	///<Zwraca layout o podanej nazwie.	
+	RenderTargetObject*			GetRenderTarget				( const filesystem::Path& name );
+	VertexShader*				GetVertexShader				( const filesystem::Path& name );
+	PixelShader*				GetPixelShader				( const filesystem::Path& name );
+	TextureObject*				GetTexture					( const filesystem::Path& name );
+	BufferObject*				GetVertexBuffer				( const filesystem::Path& name );
+	BufferObject*				GetConstantBuffer			( const filesystem::Path& name );
+	BufferObject*				GetIndexBuffer				( const filesystem::Path& name );
+	ShaderInputLayout*			GetLayout					( const filesystem::Path& name );
 	///@}
 
 
 	///@name Resource loading
 	///@detail Load assets from specified file. Functions protect from loading assets multiple times.
 	///@{
-	TextureObject*					LoadTexture					( const std::wstring& fileName );
-	VertexShader*					LoadVertexShader			( const std::wstring& fileName, const std::string& shaderEntry );
-	VertexShader*					LoadVertexShader			( const std::wstring& fileName, const std::string& shaderEntry, ShaderInputLayout** layout, InputLayoutDescriptor* layout_desc );
-	PixelShader*					LoadPixelShader				( const std::wstring& fileName, const std::string& shaderEntry );
-	GeometryShader*					LoadGeometryShader			( const std::wstring& fileName, const std::string& shaderEntry );
-	ControlShader*					LoadControlShader			( const std::wstring& fileName, const std::string& shaderEntry );
-	EvaluationShader*				LoadEvaluationShader		( const std::wstring& fileName, const std::string& shaderEntry );
+	TextureObject*					LoadTexture					( const filesystem::Path& fileName );
+	VertexShader*					LoadVertexShader			( const filesystem::Path& fileName, const std::string& shaderEntry );
+	VertexShader*					LoadVertexShader			( const filesystem::Path& fileName, const std::string& shaderEntry, ShaderInputLayout** layout, InputLayoutDescriptor* layout_desc );
+	PixelShader*					LoadPixelShader				( const filesystem::Path& fileName, const std::string& shaderEntry );
+	GeometryShader*					LoadGeometryShader			( const filesystem::Path& fileName, const std::string& shaderEntry );
+	ControlShader*					LoadControlShader			( const filesystem::Path& fileName, const std::string& shaderEntry );
+	EvaluationShader*				LoadEvaluationShader		( const filesystem::Path& fileName, const std::string& shaderEntry );
 
 	ResourcePtr< ResourceObject >	LoadGeneric					( const filesystem::Path& assetName, IAssetLoadInfo* desc, TypeID type );
 	///@}
@@ -105,16 +105,16 @@ public:
 	///@detail You can create assets in code using these functions. Remember to give unique names for your assets.
 	///Engine uses convention, that all generated resources have :: before name, to distinguish them from assets loaded from files.
 	///@{
-	ResourcePtr< BufferObject >		CreateVertexBuffer			( const std::wstring& name, const void* buffer, unsigned int element_size, unsigned int vert_count );
-	ResourcePtr< BufferObject >		CreateVertexBuffer			( const std::wstring& name, const VertexBufferInitData& data );
-	ResourcePtr< BufferObject >		CreateIndexBuffer			( const std::wstring& name, const void* buffer, unsigned int element_size, unsigned int vert_count );
-	ResourcePtr< BufferObject >		CreateIndexBuffer			( const std::wstring& name, const IndexBufferInitData& data );
-	ResourcePtr< BufferObject >		CreateConstantsBuffer		( const std::wstring& name, const void* buffer, unsigned int size );
-	ResourcePtr< BufferObject >		CreateConstantsBuffer		( const std::wstring& name, const ConstantBufferInitData& data );
+	ResourcePtr< BufferObject >		CreateVertexBuffer			( const filesystem::Path& name, const void* buffer, unsigned int elementSize, unsigned int vertCount );
+	ResourcePtr< BufferObject >		CreateVertexBuffer			( const filesystem::Path& name, const VertexBufferInitData& data );
+	ResourcePtr< BufferObject >		CreateIndexBuffer			( const filesystem::Path& name, const void* buffer, unsigned int elementSize, unsigned int vertCount );
+	ResourcePtr< BufferObject >		CreateIndexBuffer			( const filesystem::Path& name, const IndexBufferInitData& data );
+	ResourcePtr< BufferObject >		CreateConstantsBuffer		( const filesystem::Path& name, const void* buffer, unsigned int size );
+	ResourcePtr< BufferObject >		CreateConstantsBuffer		( const filesystem::Path& name, const ConstantBufferInitData& data );
 
-	ResourcePtr< BlendingState >	CreateBlendingState			( const std::wstring& name, const BlendingInfo& info );
-	ResourcePtr< RasterizerState >	CreateRasterizerState		( const std::wstring& name, const RasterizerStateInfo& info );
-	ResourcePtr< DepthStencilState >CreateDepthStencilState		( const std::wstring& name, const DepthStencilInfo& info );
+	ResourcePtr< BlendingState >	CreateBlendingState			( const filesystem::Path& name, const BlendingInfo& info );
+	ResourcePtr< RasterizerState >	CreateRasterizerState		( const filesystem::Path& name, const RasterizerStateInfo& info );
+	ResourcePtr< DepthStencilState >CreateDepthStencilState		( const filesystem::Path& name, const DepthStencilInfo& info );
 
 	ResourcePtr< ResourceObject >	CreateGenericAsset			( const filesystem::Path& name, TypeID assetType, IAssetCreateInfo&& createInfo );
 	///@}
@@ -139,8 +139,8 @@ public:
 protected:
 
 	ResourcePtr< ResourceObject >						FindResource		( const filesystem::Path& assetName, TypeID assetType );
-	IAssetLoader*										FindLoader			( const filesystem::Path& assetName, TypeID assetType );
 	ResourcePtr< ResourceObject >						FindRequestedAsset	( const filesystem::Path& assetName, TypeID assetType, const AssetsVec& loadedAssets );
+	IAssetLoader*										FindLoader			( const filesystem::Path& assetName, TypeID assetType );
 
 	ResourcePtr< ResourceObject >						LoadingImpl			( const filesystem::Path& assetName, IAssetLoadInfo* desc, TypeID assetType );
 };
