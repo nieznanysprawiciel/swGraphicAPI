@@ -189,6 +189,9 @@
     <ClInclude Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.h">
       <Filter>ResourceManager\AssetCreators</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ResourceManager\ResourceManagerAsync.h">
+      <Filter>ResourceManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\ResourceManager.cpp">
@@ -233,5 +236,6 @@
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.cpp">
       <Filter>ResourceManager\AssetCreators</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\ResourceManager\ResourceManagerAsync.cpp" />
   </ItemGroup>
 </Project>

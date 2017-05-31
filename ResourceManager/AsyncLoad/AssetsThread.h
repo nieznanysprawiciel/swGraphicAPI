@@ -9,7 +9,7 @@
 
 #include "AssetLoadRequest.h"
 #include "AssetLoadResponse.h"
-#include "RMAsyncLoaderAPI.h"
+#include "swGraphicAPI/ResourceManager/nResourceManager.h"
 
 #include <thread>
 
@@ -51,7 +51,7 @@ class AssetsThread
 {
 private:
 
-	RMAsyncLoaderAPI				m_resourceManager;
+	nResourceManager*				m_resourceManager;
 
 	QueueMT< AssetLoadRequest >		m_requests;
 
@@ -59,7 +59,7 @@ private:
 
 protected:
 public:
-	explicit		AssetsThread		( RMAsyncLoaderAPI resourceManApi );
+	explicit		AssetsThread		( nResourceManager* resourceManApi );
 					~AssetsThread		();
 
 	/**@brief Breaks thread execution by sending end message to queue.*/

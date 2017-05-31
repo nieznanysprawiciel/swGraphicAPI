@@ -16,7 +16,7 @@ namespace sw
 
 // ================================ //
 //
-AssetsThread::AssetsThread( RMAsyncLoaderAPI resourceManApi )
+AssetsThread::AssetsThread( nResourceManager* resourceManApi )
 	:	m_resourceManager( resourceManApi )
 {
 	m_thread = std::thread( &AssetsThread::LoadingThread, this );

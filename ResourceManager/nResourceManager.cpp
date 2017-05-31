@@ -16,7 +16,6 @@ namespace sw
 // ================================ //
 //
 nResourceManager::nResourceManager()
-	:	m_asyncThread( RMAsyncLoaderAPI( this ) )
 {
 	m_assetsFactory = AssetsFactoryOPtr( new AssetsFactory() );
 }
