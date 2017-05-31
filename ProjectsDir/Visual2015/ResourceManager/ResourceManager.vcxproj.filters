@@ -236,6 +236,8 @@
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.cpp">
       <Filter>ResourceManager\AssetCreators</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\ResourceManager\ResourceManagerAsync.cpp" />
+    <ClCompile Include="..\..\..\ResourceManager\ResourceManagerAsync.cpp">
+      <Filter>ResourceManager</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

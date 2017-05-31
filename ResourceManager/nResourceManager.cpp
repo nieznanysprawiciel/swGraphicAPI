@@ -9,6 +9,8 @@
 #include "nResourceManager.h"
 #include "swGraphicAPI/ResourceManager/nResourceContainer.h"
 
+#include "swCommonLib/Common/Multithreading/UniqueLock.h"
+
 
 namespace sw
 {
@@ -29,13 +31,17 @@ nResourceManager::~nResourceManager()
 //
 ResourcePtr< ResourceObject >			nResourceManager::LoadGeneric				( const filesystem::Path& name, IAssetLoadInfo* desc, TypeID type )
 {
-	//m_rwLock.ReaderLock();
+	// Lock as Reader.
+	ReaderUniqueLock< ReaderWriterLock > lock( m_rwLock );
 
 	auto resource = FindResource( name, type );
 	if( !resource )
 	{
 		/// @todo This path should be preprocessed to contain only path without everything after ::.
 		auto result = m_waitingAssets.RequestAsset( name );
+
+		// Unlock as Reader.
+		lock.Unlock();
 		
 		WaitingAsset* assetWait = result.first;
 		bool needWait = result.second;
