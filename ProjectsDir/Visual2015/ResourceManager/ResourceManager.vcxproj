@@ -64,6 +64,7 @@
     <ClInclude Include="..\..\..\Resources\Shaders\ShaderInitData.h" />
     <ClInclude Include="..\..\..\Resources\Shaders\Shaders.h" />
     <ClInclude Include="..\..\..\Resources\SwapChain.h" />
+    <ClInclude Include="..\..\..\Resources\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ResourceManager\AssetCreators\AssetsFactory.cpp" />
@@ -89,6 +90,7 @@
     </ClCompile>
     <ClCompile Include="..\..\..\Resources\MeshResources.cpp" />
     <ClCompile Include="..\..\..\Resources\Shaders\Shaders.cpp" />
+	<ClCompile Include="..\..\..\Resources\Texture.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{9F71F0DA-1D72-4E96-93B7-5AC2C9CB6EDE}</ProjectGuid>
