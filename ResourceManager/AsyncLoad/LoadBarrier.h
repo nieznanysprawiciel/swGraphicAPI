@@ -45,11 +45,16 @@ private:
 	/**@brief Increments loading threads count.*/
 	void				RequestAsset		();
 
-	/**@brief Notify all threads waiting for this asset.*/
-	void				LoadingCompleted	();
+	/**@brief Notify all threads waiting for this asset.
+	@return Returns true if it was last waiting thread.*/
+	bool				LoadingCompleted	();
 
 	/**@brief Check if file is during laoding.*/
 	bool				Compare				( const filesystem::Path& filePath );
+
+
+private:
+	FRIEND_CLASS_TESTER( LoadBarrier )
 };
 
 
@@ -76,6 +81,13 @@ public:
 
 	/**@brief Notify all threads waiting for this asset.*/
 	void									LoadingCompleted	( const filesystem::Path& filePath );
+
+private:
+
+    bool                                    RemoveWaitingAsset	( WaitingAsset* asset );
+
+private:
+	FRIEND_CLASS_TESTER( LoadBarrier )
 };
 
 

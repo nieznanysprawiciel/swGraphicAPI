@@ -6,6 +6,25 @@
 
 
 
+
+namespace sw
+{
+
+// ================================ //
+//
+class CLASS_TESTER( LoadBarrier )
+{
+private:
+public:
+
+	static std::vector< WaitingAsset* > &       GetWaitingAssets    ( LoadBarrier & barrier ) { return barrier.m_waitingAssets; }
+
+};
+
+
+}	// sw
+
+
 const int numThreads = 4;
 
 sw::ThreadsBarrier		gPreAccessBarrier( numThreads );
@@ -92,12 +111,14 @@ void		IndependentAssetThread	( int threadNum )
 	// Independent thread should pass without blocking. result.second should be false.
 	threadsInternalResult[ threadNum ] = result.second;
 	notNullWaitingAsset[ threadNum ] = result.first != nullptr;
+
+	gLoadBarrier.LoadingCompleted( independentAsset );
 }
 
 
 // ================================ //
 // Only one thread should enter loading at the same time. Rest should wait.
-TEST_CASE( "LoadBarrier" )
+TEST_CASE( "MultiThreadsLoading", "LoadBarrierTest" )
 {
 	std::thread threads[ numThreads ];
 
@@ -128,5 +149,30 @@ TEST_CASE( "LoadBarrier" )
 	CHECK( ( gOrderChecker[ 2 ] == 1 || gOrderChecker[ 2 ] == 2 ) );
 	CHECK( ( gOrderChecker[ 3 ] == 1 || gOrderChecker[ 3 ] == 2 ) );
 
+    // Waiting assets list should be cleaned.
+    CHECK( sw::CLASS_TESTER( LoadBarrier )::GetWaitingAssets( gLoadBarrier ).size() == 0 );
 }
 
+
+sw::LoadBarrier     gBarrier;
+
+
+// ================================ //
+// Load asset from single thread. Barrier should end in clean state without waiting assets on list.
+// Note that this checks state cleaning in situation, when there're no other threads what differs
+// from previous test case.
+TEST_CASE( "SingleAssetLoading", "LoadBarrierTest" )
+{
+    auto result = gBarrier.RequestAsset( assetFile );
+
+    // New Waiting asset should be created in this case.
+    REQUIRE( result.second == false );
+    CHECK( result.first != nullptr );
+
+    // Here in real application should be loading code.
+
+    gBarrier.LoadingCompleted( assetFile );
+
+    // Waiting assets list should be cleaned.
+    CHECK( sw::CLASS_TESTER( LoadBarrier )::GetWaitingAssets( gBarrier ).size() == 0 );
+}

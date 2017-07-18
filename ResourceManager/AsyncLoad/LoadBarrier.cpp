@@ -53,13 +53,20 @@ void			WaitingAsset::RequestAsset			()
 
 // ================================ //
 //
-void			WaitingAsset::LoadingCompleted		()
+bool			WaitingAsset::LoadingCompleted		()
 {
-	m_lock.lock();
-	m_ready = true;
-	m_lock.unlock();
+    m_lock.lock();
 
-	m_condition.notify_all();
+    m_ready = true;
+    bool noOneWaits = m_numWaiting == 0;
+
+    m_lock.unlock();
+
+    m_condition.notify_all();
+
+    if( noOneWaits )
+        return true;
+    return false;
 }
 
 // ================================ //
@@ -118,18 +125,7 @@ void									LoadBarrier::WaitUntilLoaded	( WaitingAsset* asset )
 	if( isLast )
 	{
 		std::unique_lock< std::mutex > lock( m_lock );
-
-		bool removed = false;
-		for( auto iter = m_waitingAssets.begin(); iter != m_waitingAssets.end(); ++iter )
-		{
-			if( *iter == asset )
-			{
-				delete *iter;
-				m_waitingAssets.erase( iter );
-				removed = true;
-				break;
-			}
-		}
+        bool removed = RemoveWaitingAsset( asset );
 
 		assert( removed );
 	}
@@ -139,15 +135,49 @@ void									LoadBarrier::WaitUntilLoaded	( WaitingAsset* asset )
 //
 void									LoadBarrier::LoadingCompleted	( const filesystem::Path& filePath )
 {
-	std::unique_lock< std::mutex > lock( m_lock );
+    std::unique_lock< std::mutex > lock( m_lock );
 
-	for( auto asset : m_waitingAssets )
-	{
-		if( asset->Compare( filePath ) )
-			asset->LoadingCompleted();
-		
-		// WaitingAsset will be removed when last thread will leave waiting lock.
-	}
+    WaitingAsset* asset = nullptr;
+
+    for( int i = 0; i < m_waitingAssets.size(); ++i )
+    {
+        if( m_waitingAssets[ i ]->Compare( filePath ) )
+        {
+            asset = m_waitingAssets[ i ];
+            break;
+        }
+    }
+
+    
+    if( asset )
+    {
+        bool noOneWaits = asset->LoadingCompleted();
+
+        // Remove if there're no waiting threads
+        if( noOneWaits )
+            RemoveWaitingAsset( asset );
+
+        // In other cases WaitingAsset will be removed when last thread will leave waiting lock.
+    }
+}
+
+// ================================ //
+//
+bool                                    LoadBarrier::RemoveWaitingAsset ( WaitingAsset* asset )
+{
+    bool removed = false;
+    for( auto iter = m_waitingAssets.begin(); iter != m_waitingAssets.end(); ++iter )
+    {
+        if( *iter == asset )
+        {
+            delete *iter;
+            m_waitingAssets.erase( iter );
+            removed = true;
+            break;
+        }
+    }
+
+    return removed;
 }
 
 }	// sw
