@@ -32,7 +32,7 @@ ResourceManager loads assets synchronously in caller thread or can queue loading
 in internal thread. For managing this internal thread, AssetsThread was created. After asset is already loaded,
 AssetsThread calls delegate (@ref AsyncLoadHandler) specified by requestor to return loaded value.
 
-AsyncLoadHandler gets @ref AssetLoadResponse in parameter which contains desired resource, path to file which and
+AsyncLoadHandler gets @ref AssetLoadResponse in parameter which contains desired resource, path to file and
 IAssetLoadInfo structure info. Requestor is now allowed to do with this structure whatever he wants (for example
 he can move path and load info with std::move.
 

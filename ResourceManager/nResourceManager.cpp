@@ -55,7 +55,7 @@ ResourcePtr< ResourceObject >			nResourceManager::LoadGeneric				( const filesys
 			// If asset was loaded, next call to LoadGeneric will take it from m_resources map. If it wasn't - next call will try to load
 			// specific asset (not entire file). If it returns nullptr, it means that asset can't be loaded.
 			//
-			// @todo Consider situation when first found loader isn't able to load file, but next coould. Should we handle this. Maybe use some loader flags.
+			// @todo Consider situation when first found loader isn't able to load file, but next could. Should we handle this? Maybe use some loader flags.
 			resource = LoadGeneric( name, desc, type );
 		}
 		else

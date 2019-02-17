@@ -17,7 +17,7 @@
 namespace sw
 {
 
-/**@brief Class describing asset waiting for beeing load.*/
+/**@brief Class describing asset waiting for beeing loaded.*/
 class WaitingAsset
 {
 	friend class LoadBarrier;

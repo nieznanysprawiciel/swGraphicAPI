@@ -1,12 +1,12 @@
 #pragma once
-/**@file ResourceObject.h
+/**
+@file ResourceObject.h
 @author nieznanysprawiciel
-@copyright Plik jest czêœci¹ silnika graficznego SWEngine.
+@copyright File is part of Sleeping Wombat Libraries.
+*/
 
-@brief Plik zawiera deklaracjê i definicjê klasy ResourceObject s³u¿¹c¹
-do zliczania odwo³añ do obiektu.*/
 
-#include "swCommonLib/Common/EngineObject.h"
+#include "swCommonLib/Serialization/PropertySerialization/EngineObject.h"
 
 
 class ResourceObject;
@@ -43,9 +43,9 @@ reference counter to avoid deletion. Use class ResourcePtr for this purpose.
 
 @todo Zliczanie referencji w ResourceObject nie nadaje siê do wielow¹tkowoœci. Poprawiæ w odpowiednim momencie.
 */
-class ResourceObject	: public EngineObject
+class ResourceObject	: public sw::EngineObject
 {
-	RTTR_ENABLE( EngineObject );
+	RTTR_ENABLE( sw::EngineObject );
 	RTTR_REGISTRATION_FRIEND;
 	friend class ObjectDeleter< ResourceObject >;
 
