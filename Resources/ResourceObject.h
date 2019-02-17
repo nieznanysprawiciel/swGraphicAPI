@@ -7,6 +7,7 @@
 
 
 #include "swCommonLib/Serialization/PropertySerialization/EngineObject.h"
+//#include <atomic>
 
 
 class ResourceObject;
@@ -46,9 +47,7 @@ reference counter to avoid deletion. Use class ResourcePtr for this purpose.
 class ResourceObject	: public sw::EngineObject
 {
 	RTTR_ENABLE( sw::EngineObject );
-	RTTR_REGISTRATION_FRIEND;
-	friend class ObjectDeleter< ResourceObject >;
-
+	RTTR_REGISTRATION_FRIEND
 private:
 	unsigned int			m_objectReferences;	///< Liczba assetów, które sie odwo³uj¹. @todo To powinien byæ std::atomic_uint, ale wtedy nie kompiluje siê z CLRem.
 	ResourceID				m_uniqueId;			///< Unikalny identyfikator zasobu.
